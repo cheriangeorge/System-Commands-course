@@ -9,10 +9,13 @@
   - remove a file 
 * ### mv
   - move , rename 
+* ### ps 
+  - currently running processes
 # Linux Virtual Machine 
-* ### ISO image of Linux OS (Ubuntu 20.04 LTS for x86_64 platform)
-* Hypervisor (eg: Oracle VirtualBox or VMWare Workstation Player)
-
+* ### ISO 
+  - image of Linux OS (Ubuntu 20.04 LTS for x86_64 platform)
+* ### Hypervisor 
+  - (eg: Oracle VirtualBox or VMWare Workstation Player)
 # Command Line Environments
 * Cloud - replit and cocalc
 * Phone - Termux by Fredrick Fornwall
