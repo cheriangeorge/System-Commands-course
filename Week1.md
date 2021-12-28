@@ -16,6 +16,7 @@
   - a : all . displays hidden files 
   - l : use a long listing format
   - i : print index number of each file (inode)
+  - s : shows blocks occupied by each file
 * ### rm 
   - remove a file 
 * ### mv
