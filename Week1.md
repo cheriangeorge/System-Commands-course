@@ -1,3 +1,11 @@
+# Terminal Emulators 
+* Terminal
+* Konsole
+* xterm
+* guake
+# Command Prompt
+* username@hostname:~$ 
+  - ~$ is the path
 # Commands and Flags
 * ### uname -a 
   - prints the name, version and other details about the current machine and the operating system running on it
@@ -13,6 +21,11 @@
   - move , rename 
 * ### ps 
   - currently running processes
+* ### clear
+  - or ctrl+l
+* ### exit 
+  - or ctrl+d
+* ### 
 # Linux Virtual Machine 
 * ### ISO 
   - image of Linux OS (Ubuntu 20.04 LTS for x86_64 platform)
