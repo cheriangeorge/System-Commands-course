@@ -1,6 +1,8 @@
 # Commands and Flags
-* ### uname-a (linux kernel version)
-* ### pwd (present working directory)
+* ### uname -a 
+  - prints the name, version and other details about the current machine and the operating system running on it
+* ### pwd 
+  - Present Working Directory 
 * ### ls 
   - a : all . displays hidden files 
   - l : use a long listing format
