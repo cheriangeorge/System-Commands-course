@@ -9,6 +9,7 @@
 # Commands and Flags
 * ### uname -a 
   - prints the name, version and other details about the current machine and the operating system running on it
+  - the -a displays hidden files that have a dot in front of them 
 * ### pwd 
   - Present Working Directory 
 * ### ls 
