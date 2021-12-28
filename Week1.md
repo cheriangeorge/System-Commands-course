@@ -38,7 +38,8 @@
   - 7 - Misc : macro packages and conventions
   - 8 - System admin commands
   - 9 - Kernel routines
-* 
+* cd
+  - change directory eg cd .. - goes to parent directory
 # Linux Virtual Machine 
 * ### ISO 
   - image of Linux OS (Ubuntu 20.04 LTS for x86_64 platform)
@@ -50,3 +51,9 @@
 
 # File System of Linux OS
 * Filesystem Hirearchy Standard FHS 3.0 (June 03, 2015) (refspecs.linuxfoundation.org/fhs.shtml)
+* / is root directory and field separator or delimiter for sub-directories
+* . references the current directory (. is a special file in every directory)
+* .. references the parent directory (.. is a special file in every directory)
+* Path for traversal can be absolute or relative
+* 
+* 
