@@ -89,3 +89,9 @@
   - /var/log : log files and directories 
   - /var/run : data relevant to running processes
   - /var/tmp : temporary files preserved between reboots
+
+
+|          |    Shareable  |  Unsharable |
+|----------|:-------------:|------:|
+| static   |  /usr and /opt | /etc and /boot |
+| variable |    /var/mail   |   /var/run and /var/lock |
