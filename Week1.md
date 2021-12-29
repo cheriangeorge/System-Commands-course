@@ -7,7 +7,7 @@
 * username@hostname:~$ 
   - ~$ is the path
 # Commands and Flags
-* ### uname -a 
+* ### uname 
   - prints the name, version and other details about the current machine and the operating system running on it
   - the -a displays hidden files that have a dot in front of them 
 * ### pwd 
@@ -17,6 +17,7 @@
   - l : use a long listing format
   - i : print index number of each file (inode)
   - s : shows blocks occupied by each file
+  - 1 : each file name on a separate line
 * ### rm 
   - remove a file 
 * ### mv
@@ -43,6 +44,17 @@
   - change directory eg cd .. - goes to parent directory
   - cd without any arguments will take you to the home directory
   - cd / takes you to the root folder
+* date
+  - date and time
+* cal
+  - calendar of a month
+* free
+  - memory statistics
+* groups
+  - groups to which a user belongs
+* file
+  - what type of file
+  - -f allows you to pass a file in which file names are separated by lines (ls -1 > files.txt; file -f files.txt)
 # Permissions and File types 
 * drwxrwxrwx or lr-x--x--x (l indicates symbolic link and d indicates directory)
 # Linux Virtual Machine 
