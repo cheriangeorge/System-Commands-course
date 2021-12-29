@@ -62,8 +62,40 @@
 * file
   - what type of file
   - -f allows you to pass a file in which file names are separated by lines (ls -1 > files.txt; file -f files.txt)
-# Permissions and File types 
-* drwxrwxrwx or lr-x--x--x (l indicates symbolic link and d indicates directory)
+* mkdir 
+  - create a directory
+  - default permissions (umask)
+* touch
+  - used to change the last modified timestamp of a file
+  - also used to create empty files
+* chmod 
+  - chmod 777 file.txt
+  - chmod g-w file.txt (removes write permissions from the group)
+  - chmod o-x file.txt (removes executable permission from others)
+  - chmod u-r file.txt (removes read permission from owner)
+# File types 
+* output of ls -l : drwxrwxrwx or lr-x--x--x (l indicates symbolic link and d indicates directory)
+* - Regular file
+* d Directory
+* l Symbolic link
+* c Character file  (usually found in /dev ; typically the terminal)
+* b Block file  (usually found in /dev ; typically the hard disk)
+* s Socket file
+* p named pipe
+# Hard links and Soft links
+* inode - An entry in the filesystem table about the location in the storage media
+* ls -i <name>
+* inode is unique for every file : if there are multiple entries of inode then it means that they are all hard links
+# Permissions 
+* rwxrwxrwx (777)
+  - 7 rwx
+  - 6 rw-
+  - 5 r-x
+  - 4 r--
+  - 3 -wx
+  - 2 -w-
+  - 1 --x
+* rwx rwx rwx : Owner Group Others 
 # Linux Virtual Machine 
 * ### ISO 
   - image of Linux OS (Ubuntu 20.04 LTS for x86_64 platform)
