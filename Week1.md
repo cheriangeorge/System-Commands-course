@@ -7,29 +7,32 @@
 * username@hostname:~$ 
   - ~$ is the path
 # Commands and Flags
-* ### uname 
+* uname 
   - prints the name, version and other details about the current machine and the operating system running on it
   - the -a displays hidden files that have a dot in front of them 
-* ### pwd 
+* pwd 
   - Present Working Directory 
-* ### ls 
+* ls 
   - a : all . displays hidden files 
   - l : use a long listing format
   - i : print index number of each file (inode)
   - s : shows blocks occupied by each file
   - 1 : each file name on a separate line
   - output of ls -l : drwxr-xr-x 5 ckg ckg 12288 Nov 25 10:00 Documents (d is file type ; rwxr-xr-x owner,group,others permissions ; 5 no of hard links ; ckg is owner ; ckg is group ; last modified time stamp ; filename)
-* ### rm 
+* rm 
   - remove a file 
-* ### mv
+  - rm -i prompts before every removal (it can be set using alias rm="rm -i")
+* mv
   - move , rename 
-* ### ps 
+  - mv file1 .. (moves file to parent dir)
+  - mv file1 file1a (renames file1 to file1a)
+* ps 
   - currently running processes
-* ### clear
+* clear
   - or ctrl+l
-* ### exit 
+* exit 
   - or ctrl+d
-* ### man
+* man
   - get help on any command in linux. eg : man ls
   - man sections (1 to 9) eg : man 1 ls
   - 1 - Executable programs or shell commands
@@ -47,6 +50,8 @@
   - cd / takes you to the root folder
   - cd - takes you to previous directory
   - cd ~ takes you to home directory
+* cp
+  - copy command : cp file1 file2
 * date
   - date and time
   - -R gives in RFC 5322 standard (used for email communications)
@@ -73,6 +78,10 @@
   - chmod g-w file.txt (removes write permissions from the group)
   - chmod o-x file.txt (removes executable permission from others)
   - chmod u-r file.txt (removes read permission from owner)
+* whoami
+  - prints username
+* less
+  - allows you to read a file page by page
 # File types 
 * output of ls -l : drwxrwxrwx or lr-x--x--x (l indicates symbolic link and d indicates directory)
 * - Regular file
@@ -86,6 +95,11 @@
 * inode - An entry in the filesystem table about the location in the storage media
 * ls -i <name>
 * inode is unique for every file : if there are multiple entries of inode then it means that they are all hard links
+  - if there is a dir level1 with inode = 18874686
+  - when you cd into that dir . will also have inode = 18874686
+  - if i make a dir level2 inside level1 and then cd into level2 .. will have inode = 18874686 (no of hard links will increase by 1)
+  - as number of sub directories increases the number of hardlinks also keeps increasing
+  
 # Permissions 
 * rwxrwxrwx (777)
   - 7 rwx
@@ -96,6 +110,7 @@
   - 2 -w-
   - 1 --x
 * rwx rwx rwx : Owner Group Others 
+* only owners can change permissions of a file 
 # Linux Virtual Machine 
 * ### ISO 
   - image of Linux OS (Ubuntu 20.04 LTS for x86_64 platform)
