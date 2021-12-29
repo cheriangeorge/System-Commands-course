@@ -18,6 +18,7 @@
   - i : print index number of each file (inode)
   - s : shows blocks occupied by each file
   - 1 : each file name on a separate line
+  - output of ls -l : drwxr-xr-x 5 ckg ckg 12288 Nov 25 10:00 Documents (d is file type ; rwxr-xr-x owner,group,others permissions ; 5 no of hard links ; ckg is owner ; ckg is group ; last modified time stamp ; filename)
 * ### rm 
   - remove a file 
 * ### mv
@@ -44,12 +45,18 @@
   - change directory eg cd .. - goes to parent directory
   - cd without any arguments will take you to the home directory
   - cd / takes you to the root folder
+  - cd - takes you to previous directory
+  - cd ~ takes you to home directory
 * date
   - date and time
+  - -R gives in RFC 5322 standard (used for email communications)
 * cal
   - calendar of a month
+  - eg : cal aug 1947
+  - ncal gives calendar in flipped orientation
 * free
   - memory statistics
+  - use h flag to make it human readable
 * groups
   - groups to which a user belongs
 * file
