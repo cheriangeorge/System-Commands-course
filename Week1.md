@@ -90,6 +90,9 @@
   - used to create a hard link or a symbolic link (symlink) to an existing file or directory
   - s flag is used to create a soft link
   - usage : ln file1 file2 ; ln -s file1 file2
+* cat 
+  - stands for concatinate
+  - allows you to view the contents of a single file or multiple files (gets concatinated)
 # File types 
 * output of ls -l : drwxrwxrwx or lr-x--x--x (l indicates symbolic link and d indicates directory)
 * - Regular file
@@ -140,6 +143,8 @@
   - image of Linux OS (Ubuntu 20.04 LTS for x86_64 platform)
 * ### Hypervisor 
   - (eg: Oracle VirtualBox or VMWare Workstation Player)
+  - A Hypervisor creates and runs virtual machines
+  - It allows running multiple operating systems while sharing hardware resources
 # Command Line Environments
 * Cloud - replit and cocalc
 * Phone - Termux by Fredrick Fornwall
