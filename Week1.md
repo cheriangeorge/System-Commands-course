@@ -120,6 +120,7 @@
 * only owners can change permissions of a file 
 * Execute permission is required on a directory to cd into it (Even ls and tocuh to a dir will not work)
 * If you want to access a file, all its parent direcories should have **x** permission.
+* Removing a file works only if it has write permission
   
 # Linux Virtual Machine 
 * ### ISO 
