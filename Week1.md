@@ -84,6 +84,10 @@
   - prints username
 * less
   - allows you to read a file page by page
+* ln
+  - used to create a hard link or a symbolic link (symlink) to an existing file or directory
+  - s flag is used to create a soft link
+  - usage : ln file1 file2 ; ln -s file1 file2
 # File types 
 * output of ls -l : drwxrwxrwx or lr-x--x--x (l indicates symbolic link and d indicates directory)
 * - Regular file
@@ -97,12 +101,14 @@
 * cat - to view the contents of a file
 * writing to a file : *>* eg : echo "Hello world" > test.txt
 * appending to a file : *>>* eg : echo "Helo world" >> test.txt
+
 # Hard links and Soft links
 * inode - An entry in the filesystem table about the location in the storage media
 * hard link points to the same inode
 * soft link points to a hard link
 * inode is metadata for the file . eg : size ,permissions,blocks etc.
 * ls -i <name>
+* ln and ln -s is used for creating hard links and soft links 
 * inode is unique for every file : if there are multiple entries of inode then it means that they are all hard links
   - if there is a dir level1 with inode = 18874686
   - when you cd into that dir . will also have inode = 18874686
