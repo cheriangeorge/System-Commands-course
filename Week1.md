@@ -99,6 +99,9 @@
 * appending to a file : *>>* eg : echo "Helo world" >> test.txt
 # Hard links and Soft links
 * inode - An entry in the filesystem table about the location in the storage media
+* hard link points to the same inode
+* soft link points to a hard link
+* inode is metadata for the file . eg : size ,permissions,blocks etc.
 * ls -i <name>
 * inode is unique for every file : if there are multiple entries of inode then it means that they are all hard links
   - if there is a dir level1 with inode = 18874686
