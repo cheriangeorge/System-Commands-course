@@ -114,6 +114,7 @@
   - when you cd into that dir . will also have inode = 18874686
   - if i make a dir level2 inside level1 and then cd into level2 .. will have inode = 18874686 (no of hard links will increase by 1)
   - as number of sub directories increases the number of hardlinks also keeps increasing
+* users cannot create hard links for directories (level1 to level2 and level2 to level1 will create a back and forth)
   
 # Permissions 
 * Files and directories do not inherit the parent directory permissions
