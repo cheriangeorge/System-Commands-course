@@ -93,6 +93,10 @@
 * b Block file  (usually found in /dev ; typically the hard disk)
 * s Socket file
 * p named pipe
+# Viewing and Adding to files
+* cat - to view the contents of a file
+* writing to a file : *>* eg : echo "Hello world" > test.txt
+* appending to a file : *>>* eg : echo "Helo world" >> test.txt
 # Hard links and Soft links
 * inode - An entry in the filesystem table about the location in the storage media
 * ls -i <name>
@@ -103,6 +107,7 @@
   - as number of sub directories increases the number of hardlinks also keeps increasing
   
 # Permissions 
+* Files and directories do not inherit the parent directory permissions
 * rwxrwxrwx (777)
   - 7 rwx
   - 6 rw-
@@ -113,6 +118,7 @@
   - 1 --x
 * rwx rwx rwx : Owner Group Others 
 * only owners can change permissions of a file 
+* Execute permission is required on a directory to cd into it (Even ls and tocuh to a dir will not work)
 # Linux Virtual Machine 
 * ### ISO 
   - image of Linux OS (Ubuntu 20.04 LTS for x86_64 platform)
