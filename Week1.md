@@ -119,6 +119,8 @@
 * rwx rwx rwx : Owner Group Others 
 * only owners can change permissions of a file 
 * Execute permission is required on a directory to cd into it (Even ls and tocuh to a dir will not work)
+* If you want to access a file, all its parent direcories should have **x** permission.
+  
 # Linux Virtual Machine 
 * ### ISO 
   - image of Linux OS (Ubuntu 20.04 LTS for x86_64 platform)
