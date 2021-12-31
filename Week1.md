@@ -70,6 +70,7 @@
 * file
   - what type of file
   - -f allows you to pass a file in which file names are separated by lines (ls -1 > files.txt; file -f files.txt)
+  - file *  will give a list of file name and types directly
 * mkdir 
   - create a directory
   - default permissions (umask)
