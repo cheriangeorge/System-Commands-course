@@ -21,15 +21,16 @@
   - a shortcut for the ls -la command
   - 
 ### Commands to know contents of a text file
+
 * less
-  - 
+  - ww
 * wc
-  -
+  - ww
 * head
-  -
+  - www
 * tail
-  -
+  - w
 * cat
-  -
+  - w
 * more
-  -
+  - w
