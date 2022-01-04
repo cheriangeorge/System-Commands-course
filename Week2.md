@@ -1,3 +1,5 @@
+## Week 2 Notes
+
 * Multiple uses of / is as good as one
   - ie : cd ///////usr//////bin will take you to /usr/bin
 * The root folder / is its own parent
