@@ -1,12 +1,14 @@
-# Terminal Emulators 
+## Week 1 Notes 
+
+### Terminal Emulators 
 * Terminal
 * Konsole
 * xterm
 * guake
-# Command Prompt
+### Command Prompt
 * username@hostname:~$ 
   - ~$ is the path
-# Commands and Flags
+### Commands and Flags
 * uname 
   - prints the name, version and other details about the current machine and the operating system running on it
   - the -a displays hidden files that have a dot in front of them 
@@ -93,7 +95,7 @@
 * cat 
   - stands for concatinate
   - allows you to view the contents of a single file or multiple files (gets concatinated)
-# File types 
+### File types 
 * output of ls -l : drwxrwxrwx or lr-x--x--x (l indicates symbolic link and d indicates directory)
 * - Regular file
 * d Directory
@@ -102,12 +104,12 @@
 * b Block file  (usually found in /dev ; typically the hard disk)
 * s Socket file
 * p named pipe
-# Viewing and Adding to files
+### Viewing and Adding to files
 * cat - to view the contents of a file
 * writing to a file : *>* eg : echo "Hello world" > test.txt
 * appending to a file : *>>* eg : echo "Helo world" >> test.txt
 
-# Hard links and Soft links
+### Hard links and Soft links
 * inode - An entry in the filesystem table about the location in the storage media
 * hard link points to the same inode
 * soft link points to a hard link
@@ -121,7 +123,7 @@
   - as number of sub directories increases the number of hardlinks also keeps increasing
 * users cannot create hard links for directories (level1 to level2 and level2 to level1 will create a back and forth)
   
-# Permissions 
+### Permissions 
 * Files and directories do not inherit the parent directory permissions
 * rwxrwxrwx (777)
   - 7 rwx
@@ -138,18 +140,18 @@
 * r and w permissions along with x is required to ls a directory or touch a file into a directory
 * Removing a file works only if it has write permission
   
-# Linux Virtual Machine 
-* ### ISO 
+### Linux Virtual Machine 
+* #### ISO 
   - image of Linux OS (Ubuntu 20.04 LTS for x86_64 platform)
-* ### Hypervisor 
+* #### Hypervisor 
   - (eg: Oracle VirtualBox or VMWare Workstation Player)
   - A Hypervisor creates and runs virtual machines
   - It allows running multiple operating systems while sharing hardware resources
-# Command Line Environments
+### Command Line Environments
 * Cloud - replit and cocalc
 * Phone - Termux by Fredrick Fornwall
 
-# File System of Linux OS
+### File System of Linux OS
 * Filesystem Hirearchy Standard FHS 3.0 (June 03, 2015) (refspecs.linuxfoundation.org/fhs.shtml)
 * / is root directory and field separator or delimiter for sub-directories
 * . references the current directory (. is a special file in every directory)
