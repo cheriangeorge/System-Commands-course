@@ -30,6 +30,9 @@
   - give a nickname to a frequently used command
   - usage : `alias ll = 'ls -l'`
   - Just typing alias will show a list of aliases
+  - `alias date = 'date -R'`
+  - If the command is executed by typing the whole path eg : `/usr/bin/date` the alias is not invoked. (`cd /usr/bin` and `./date`)
+  - An alias can be escaped by prefixing a \ ie: `\date`
 * `unalias` 
   - used to remove an alias
 * `rmdir`
@@ -139,15 +142,23 @@
 * `echo` prints strings to screen
   - uses space as a delimiter so multiple spaces between words are ignored. For multiple spaces, enclose the string in quotes.
   - can print a multi-line string by using double quotes and not closing it
+  - ** Difference between ' and " **
+  - `echo $USERNAME` and `echo "$USERNAME"` give the same result but `echo '$USERNAME'` is not interpreted to give the value of the shell variable.
+  - ** Escaping to prevent interpretation **
+  - `echo "username is $USERNAME and host name is \$HOSTNAME"`
+  - Escaping is usefule when you want to pass on the information to a child shell, without it being interpreted by the shell launching it.
 * `echo $HOME` prints values of variables
   - By convention every shell variable starts with a Dollar
 * **Commonly used shell variables**
-  - `$USERNAME`
+  - `$USERNAME` eg : `echo "User logged into system now is : $USERNAME"`
   - `$HOME`
   - `$HOSTNAME`
   - `$PWD`
-  - `$PATH` - variable contains a list of directories which will be searched when you type a command
+  - `$PATH` - variable contains a list of directories which will be searched when you type a command. 
 * Commands like `printenv` , `env` , `set` to see variables that are already defined
+  - `printenv` displays all the shell variables defined in the shell that you are running.
+  - `env` gives the same output
+  - `set` displays some functions defined to interpret what you are typing on the command line.
 * **Special Shell Variables**
   - `$0` : name of the shell
   - `$$` : process ID of the shell
