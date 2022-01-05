@@ -37,6 +37,13 @@
   - used to remove an alias
 * `rmdir`
   - removes an empty directory
+* `ps`
+  - displays current processes
+  - `ps --forest` - which process has launched which child process.
+  - `ps -f` - displays parent process id
+  - `ps -ef` - all the processes running in the operating system now
+  - PID is the process ID , PPID is the parent process ID.
+  - PID 1 is `/sbin/init`
 
 ### Commands to know contents of a text file
 
@@ -154,14 +161,14 @@
   - `$HOME`
   - `$HOSTNAME`
   - `$PWD`
-  - `$PATH` - variable contains a list of directories which will be searched when you type a command. 
+  - `$PATH` - variable contains a list of directories which will be searched when you type a command. When ever you type a command the system scans these paths from left to right to see if the command is in the directory.
 * Commands like `printenv` , `env` , `set` to see variables that are already defined
   - `printenv` displays all the shell variables defined in the shell that you are running.
   - `env` gives the same output
   - `set` displays some functions defined to interpret what you are typing on the command line.
 * **Special Shell Variables**
-  - `$0` : name of the shell
-  - `$$` : process ID of the shell
+  - `$0` : name of the shell eg `bash` or `ksh`
+  - `$$` : process ID of the shell 
   - `$?` : return code of previously run program
   - `$-` : flags set in the bash shell
 * **Process Control** `echo $$`
