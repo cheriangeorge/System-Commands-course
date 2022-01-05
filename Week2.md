@@ -131,3 +131,8 @@
   - eg : *sys/bus/usb/devices/1-1* points to a specific usb device. 
 * These are directories that are visible in the root folder. They are not on the disk but only in the memory.
 * Important system information can be viewed from these directories in a read-only manner.
+
+### Shell Variables 
+* Makes it possible to communicate between 2 processes very efficiently. Need not write and read the filesystem.
+* Security Concern : Some information that you write to the filesystem may be visible to other processes.
+* Shell variables are available only within the shell or its child processes.
