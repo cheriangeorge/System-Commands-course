@@ -99,4 +99,35 @@
   - file1 and file3 have 2 hard links when we do *ls -li
 
 ### File Sizes 
-* 
+* *ls -s*
+  - file size appears in the first column
+* *stat*
+  - in */usr/bin* we look at *stat znew*
+  - Gives information about the size, how many blocks are being occupied
+  - Here the size is little more than 4kb
+  - *stat zmore* shows that it takes less than one block
+* *du*
+  - in */usr/bin* we look at *du znew* or *du -h znew*
+  - Gives information about the size
+  - Here the size is displayed as 8.0KB since there is a block overflow.
+  - This means that files that are smaller than the block size will actually take up a whole block
+  - *du -h zmore* shows that it occupies one block - around 4.0K
+* Role of block size
+  - explained in stat and du
+
+### In-Memory File Systems
+* /proc
+  - Is an older system 
+  - *ls -l* will display several zero-size files, even though we can read content from them.
+  - These are only a representation and not real files on the HDD.
+  - *less cpuinfo* - information about the cpu
+  - *cat version* - information about the OS. Also accessible using *uname -a*
+  - *cat meminfo* - information about the memory - also *free -h*
+  - *cat partitions* - information about the partitions - also *df -h* 
+  - The *kcore* file appears to take huge space - Shows maximum virtual memory that the current linux os is able to handle. 2^47 or 140 TB
+* /sys
+  - Used from Kernel v2.6 onwards, however information about various processes that are running are still stored in the /proc directory itself.
+  - Much more well organised than /proc
+  - eg : *sys/bus/usb/devices/1-1* points to a specific usb device. 
+* These are directories that are visible in the root folder. They are not on the disk but only in the memory.
+* Important system information can be viewed from these directories in a read-only manner.
