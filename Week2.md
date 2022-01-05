@@ -136,3 +136,18 @@
 * Makes it possible to communicate between 2 processes very efficiently. Need not write and read the filesystem.
 * Security Concern : Some information that you write to the filesystem may be visible to other processes.
 * Shell variables are available only within the shell or its child processes.
+* `echo` prints strings to screen
+* `echo $HOME` prints values of variables
+  - By convention every shell variable starts with a Dollar
+* **Commonly used shell variables**
+  - `$USERNAME`
+  - `$HOME`
+  - `$HOSTNAME`
+  - `$PWD`
+  - `$PATH` - variable contains a list of directories which will be searched when you type a command
+* Commands like `printenv` , `env` , `set` to see variables that are already defined
+* **Special Shell Variables**
+  - `$0` : name of the shell
+  - `$$` : process ID of the shell
+  - `$?` : return code of previously run program
+  - `$-` : flags set in the bash shell
