@@ -83,5 +83,20 @@
  * Second arrument behaviour and interpratation of last argument should be seen in the man pages
  * Recursion is assumed for *mv* and not *cp*
   - recursion is assumed for some commands and should be explicitly stated in others
+  - For copy command recurssion is not assumed
+  - *cp dir1 dir2* need not work. dir1 has 2 files in it.
+  - *cp -r dir1 dir2* works - recurssion is specified explicitly.
+  - *mv dir1 dir3* works - it just renames the directory.
  * *touch file1 file2 file3* creates all 3 files in one go with identical timestamp.
- * 
+ 
+ ### Links (Hard Links and Soft Links)
+* Can determine whether a link is HL or SL by looking at the Inode numbers
+* *ln -s source destination* to create symbolic link. *ln -s file1 file2*
+  - file2 is a separate inode entry but it is just a shortcut to file1
+  - file2 has only 1 hardlink.
+* *lf source destionation* to create a hard link . *ln file1 file3*
+  - file1 and file 3 have the same inode number - They are basically the same file.
+  - file1 and file3 have 2 hard links when we do *ls -li
+
+### File Sizes 
+* 
