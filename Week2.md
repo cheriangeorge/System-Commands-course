@@ -1,9 +1,9 @@
 ## Week 2 Notes
 
 * Multiple uses of / is as good as one
-  - ie : `cd usr//////bin` will take you to usr/bin
+  - ie : `cd usr//////bin` will take you to `usr/bin`
 * The root folder / is its own parent
-  - ie : if you do cd .. within the root directory you stay in the same directory.
+  - ie : if you do `cd ..` within the root directory you stay in the same directory.
 * Options / Flags can be written in multiple combinations
   - `ls -l level1 -di`
   - `ls -d level1 -il`
@@ -137,6 +137,8 @@
 * Security Concern : Some information that you write to the filesystem may be visible to other processes.
 * Shell variables are available only within the shell or its child processes.
 * `echo` prints strings to screen
+  - uses space as a delimiter so multiple spaces between words are ignored. For multiple spaces, enclose the string in quotes.
+  - can print a multi-line string by using double quotes and not closing it
 * `echo $HOME` prints values of variables
   - By convention every shell variable starts with a Dollar
 * **Commonly used shell variables**
@@ -151,3 +153,28 @@
   - `$$` : process ID of the shell
   - `$?` : return code of previously run program
   - `$-` : flags set in the bash shell
+* **Process Control** `echo $$`
+  - use of `&` to run a job in the background
+  - `fg` - bring process to foreground
+  - `coproc` - run a command while also being able to use the shell
+  - `jobs` - list programs running in the background
+  - `top` - See programs that are hogging the CPU or memory (refreshed every second)
+  - `kill` - kill process owned by you 
+* **Program Exit Codes** `echo $?` 
+  - exit code always has a value between *0 and 255*
+  - 0 : Success
+  - 1 : Failure
+  - 2 : Misuse
+  - 126 : command cannot be executed
+  - 127 : command not found
+  - 130 : processes killed using control+c
+  - 137 : processes killed using `kill -9 <pid>`
+  - If the exit code is more than 256 then the exitcode%256 will be reported as the exit code
+* **Flags set in bash** `echo $-`
+  - h : locate hash commands
+  - B : braceexpansion enabled
+  - i : interactive mode
+  - m : job control enabled (can be taken to bg or fg)
+  - H : !style history substitution enabled
+  - s : commands are read from stdin
+  - c : commands are read from arguments
