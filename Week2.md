@@ -44,6 +44,8 @@
   - `ps -ef` - all the processes running in the operating system now
   - PID is the process ID , PPID is the parent process ID.
   - PID 1 is `/sbin/init`
+* `bc` - bench calculator 
+  - exit using `Ctrl`+`D`
 
 ### Commands to know contents of a text file
 
@@ -170,7 +172,7 @@
   - `$0` : name of the shell eg `bash` or `ksh`
   - `$$` : process ID of the shell 
   - `$?` : return code of previously run program
-  - `$-` : flags set in the bash shell
+  - `$-` : flags set in the bash shell . The man page for bash shows the meaning of the flags.
 * **Process Control** `echo $$`
   - use of `&` to run a job in the background
   - `fg` - bring process to foreground
@@ -182,12 +184,14 @@
   - exit code always has a value between *0 and 255*
   - 0 : Success
   - 1 : Failure
-  - 2 : Misuse
-  - 126 : command cannot be executed
-  - 127 : command not found
+  - 2 : Misuse (insufficient permissions)
+  - 126 : command cannot be executed (usually due to insufficient permissions to execute a file)
+  - 127 : command not found (usually due to command typos)
   - 130 : processes killed using control+c
   - 137 : processes killed using `kill -9 <pid>`
   - If the exit code is more than 256 then the exitcode%256 will be reported as the exit code
+  - `exit 0` or `exit 1` or `exit <n>` exits with exit code n
+  - Used when there are command dependencies (ie: run second command only if first command completes successfully)
 * **Flags set in bash** `echo $-`
   - h : locate hash commands
   - B : braceexpansion enabled
@@ -211,5 +215,22 @@
   - Executing the command `fg` will bring it back to foreground
 * `jobs` is a shell builtin - it lists active jobs in the current shell
 * `top` shows processes taking up maximum cpu and memory. Exit gracefully by pressing Q
-* `Ctrl`+`z` suspends a process
+* `Ctrl`+`z` suspends a process.
+  - Suspended processes can be seen with `jobs`
+  - Can be brought back to foreground using `fg` command
 * `Ctrl`+`c` kills a process
+* `fg` is a shell builtin
+* `bash -c "echo \$-"` creates a child shell, gets the value of `echo $-`, gives the output to the parent shell
+  - `bash -c "echo \$-; ps --forest;"` - multiple commands separated by ;
+  - `bash -c "echo \$$ ; ps --forest ; exit 300"` : custom error code mod 256 = 44
+* `history` displays a list of commands that have been run on that computer
+  - `!n` executes command line no n displayed by `history`
+  - useful for repeating long commands
+  - The `H` flag in bash means the history is being recorded
+* Brace expansion option `B`
+  - if you type `echo {a..z}` character in the ASCII sequence will be expanded.
+  - In combination `echo {a..d}{a..d}` will display all possible combinations of the 2 alphabets.
+  - `*` exapnds to all the files in the current directory
+  - `echo D*` lists all the files begining with D.
+* `;` acts as a separator between individual commands eg : `echo hello ; ls`
+* 
