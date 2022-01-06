@@ -196,3 +196,20 @@
   - H : !style history substitution enabled
   - s : commands are read from stdin
   - c : commands are read from arguments
+
+### Linux Process Management
+* `sleep` command to create processes
+  - usage : `sleep 3` for 3 seconds
+* If you have a command running in the Foreground for a long time but you need to write something else on the command line :
+  - kill the process
+  - suspend the process
+  - run it in the background `coproc sleep 10` - When complete it gives a message.
+* `coproc` is a shell keyword. No manual entry for it.
+  - To learn more about a shell key word use `help coproc`
+  - a running background process can be killed by process id (use : `ps --forest` to find PID and `kill -9 <pid>`)
+* A command followed by an `&` means that it is being assigned to the background
+  - Executing the command `fg` will bring it back to foreground
+* `jobs` is a shell builtin - it lists active jobs in the current shell
+* `top` shows processes taking up maximum cpu and memory. Exit gracefully by pressing Q
+* `Ctrl`+`z` suspends a process
+* `Ctrl`+`c` kills a process
