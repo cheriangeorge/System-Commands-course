@@ -233,4 +233,4 @@
   - `*` exapnds to all the files in the current directory
   - `echo D*` lists all the files begining with D.
 * `;` acts as a separator between individual commands eg : `echo hello ; ls`
-* 
+
