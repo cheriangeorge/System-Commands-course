@@ -236,3 +236,11 @@
     - `mkdir {1..12}{A..E}` or `rmdir {1..12}{A..E}` or `touch {1..12}{A..E}/{1..40}`
 * `;` acts as a separator between individual commands eg : `echo hello ; ls`
 
+### REPLIT CODE WITH US
+[Link to Replit](https://replit.com/team/22t1SystemCommand)
+- `date -d "2024-04-01" +%A` - Day of the week for given date
+- `file --mime-type somefile` - mime type of a given file 
+- `mkdir {1..12}{A..E}`
+- `rmdir {1..12}{A..E}`
+- `touch {1..12}{A..E}/{1..40}`
+- `lscpu | grep -i "model name"| cut -d ":" -f "2"`
