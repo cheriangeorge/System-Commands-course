@@ -232,5 +232,7 @@
   - In combination `echo {a..d}{a..d}` will display all possible combinations of the 2 alphabets.
   - `*` exapnds to all the files in the current directory
   - `echo D*` lists all the files begining with D.
+  - Examples :
+    - `mkdir {1..12}{A..E}` or `rmdir {1..12}{A..E}` or `touch {1..12}{A..E}/{1..40}`
 * `;` acts as a separator between individual commands eg : `echo hello ; ls`
 
