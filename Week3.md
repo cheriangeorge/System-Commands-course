@@ -43,3 +43,49 @@
       - new file1 will be created if it does not exist.
       - Example : `date >> file2 ; wc -l /etc/profile >> file2 ; file /usr/bin/znew >> file2 ;`
       - `cat >> file1` to append text to a file from command line. Come out using `Ctrl` + `D`
+
+### Redirections
+* combining command and file (continued ..)
+  - (contd..)
+    - `command 2> file1`
+      - redirects `stderr` to `file1`
+      - `file1`, if it exists, will be overwritten.
+      - `file1` will be created if it does not exist.
+      - Example `ls $HOME /blah 2> error.txt`
+    - `command > file1 2> file2`
+      - `stdout` is redirected to `file1`
+      - `stderr` is redirected to `file2`
+      - Contents of file1 and file2 will be overwritten.
+      - The output is in one file and the errors are in another file.
+      - Example : `ls $HOME /blah > output.txt 2> error.txt`
+      - `ls -R /etc > output.txt 2> error.txt` - permission related errors in error.txt
+    - `command < file1`
+      - `stdin` is redirected - a command expecting input from the keyboard could take the input from a file.
+      - Example : `wc /etc/profile` behaves similar to `wc < /etc/profile`
+    - `command > file1 2>&1`
+      - command output will be redirected to `file1`
+      - `2>` indicates `stderr` and that is being redirected to `&1` (first stream) which is `stdout`
+      - contents of `file1` will be overwritten
+      - Example : `ls $ HOME /blah > file1` output alone is sent to file1. Error on screen
+      - Example : `ls $ HOME /blah > file1 2>&1` output and error is sent to file1.
+    - `command1 | command2` Pipe
+      - `stdout` output of command 1 is sent to `stdin` of command2 as input
+      - Example `ls /usr/bin | wc -l`
+    - `command1 | command2 > file1`
+      - command1 and command2 are combined and the `stdout` of command2 is sent to `file1`. Errors are still shown on the screen.
+      - Example `ls /usr/bin | wc -l > file1` - file1 has the number of lines counted by wc 
+    - `command > file1 2> /dev/null`
+      - `/dev/null` file - A sink for output to be discarded. Like a "black hole"
+      - We normally don't do anything with the `/dev` folder as there are sensitive system files there.
+      - If you are confident that the script is running well and you do not want to display any error on the screen, you can redirect the `stderr` to `/dev/null` 
+      - `stderr` is redirected to `/dev/null`
+      - Example : `ls $HOME /blah > file1 2> /dev/null`
+      - Example : `ls -R /etc > file1 2> /dev/null` - file1 contains the output except errors
+    - `command1 | tee file1`
+      - Used in sitiations where you want to have a copy of the output in a file as well as on the screen.
+      - The `tee` command reads from `stdin` and writes to `stdout` and file/s.
+      - Example : `ls $HOME | tee file1` also `ls $HOME | tee file1 file2` for creating multiple copies
+      - `diff file1 file2` comapares files line by line
+        - no output if the files are identical 
+      - Example : `ls $HOME /blah | tee file1 file2 | wc -l` - Here  `tee` keeps copy of output in a file and also sends output to `wc -l` for further processing.
+      - Example : `ls $HOME /blah 2> /dev/null | tee file1 file2 | wc -l` to supress errors. Note location of `2>` is since the error is generated there.
