@@ -114,8 +114,9 @@
 * `ln source destionation` to create a hard link . `ln file1 file3`
   - file1 and file 3 have the same inode number - They are basically the same file.
   - file1 and file3 have 2 hard links when we do `ls -li`
-* You can create a Soft Link `ln -s ../dir/filex fileSL` but creating a hard link using `ln ../dir/filex fileSL` will not work.
+* You can create a Soft Link `ln -s ../dir/filex fileSL` but creating a hard link using `ln ../dir/filex fileHL` will not work.
   - the first/source-file parameter is interpreted in the case of hard link creation and not in soft link creation
+  - In the above example, assume that `../dir/filex` does not exist.
   - soft links useful in version control systems
 
 ### File Sizes 
