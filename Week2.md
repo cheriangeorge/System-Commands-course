@@ -103,12 +103,20 @@
  
  ### Links (Hard Links and Soft Links)
 * Can determine whether a link is HL or SL by looking at the Inode numbers
+  - Hard links will have the same inode numbers
+  - Soft Link will have different inode numbers 
+  - If you delete a certain file using the `rm` command (`rm` unlinks the file from the filesystem. the data is still at the memory location. `shred` for permanant deletion)
+    - Its hard link will still give you access to the original file data.
+    - Its soft link will not work 
 * `ln -s source destination` to create symbolic link. `ln -s file1 file2`
   - file2 is a separate inode entry but it is just a shortcut to file1
   - file2 has only 1 hardlink.
 * `ln source destionation` to create a hard link . `ln file1 file3`
   - file1 and file 3 have the same inode number - They are basically the same file.
   - file1 and file3 have 2 hard links when we do `ls -li`
+* You can create a Soft Link `ln -s ../dir/filex fileSL` but creating a hard link using `ln ../dir/filex fileSL` will not work.
+  - the first/source-file parameter is interpreted in the case of hard link creation and not in soft link creation
+  - soft links useful in version control systems
 
 ### File Sizes 
 * `ls -s`
