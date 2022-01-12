@@ -207,3 +207,37 @@
   - `unset ‘hash[“a”]’`
     - delete an element with index a in the array
   - Can do everything in the indexed array except append because there is nothing called the end of the array as there is no sequence for the elements of a hash
+* Examples
+  - `true` always returns exit code 0
+  - `false` always returns exit code 1 (Check with `echo $?`)
+  - To check whether a variable is present
+    - `[[ -v myvar ]] ; echo $?` returns 1 if the variable is not present in the memory
+    - `[[ -z ${myvar+x} ]] ; echo $? ` returns 0 if variable is not present and 1 if it is present. `x` is a string that will be used as a replacement if the variable was not present.
+  - Use of Braces
+    - `myvar=FileName`
+    - `echo $myvar`
+    - `echo "$myvar.txt"` prints FileName.txt
+    - `echo "$myvar_txt"` does not print anything as the variable `myvar_txt` does not exist
+    - `echo "${myvar}_txt"` prints Filename_txt 
+    - Braces are useful in stating clearly the name of the variable.
+    - Can also be used outside quotes `echo ${myvar}`
+  - Does the variable we have created get passed on to the shell or any other program created within the shell
+    - `myvar=3.14 ; echo $myvar`
+    - `bash` one more level of bash
+    - `ps --forest` to show that we are one level below
+    - `echo $myvar` not present
+    - Use `export myvar=3.14` to ensure this variable is available to all spawned sub shells.
+    - Change value of variable within the child shell
+    - modification of value is not reflected in the value of the variable in the parent shell
+    - even if you do export of the variable within the child shell it will not change the value within the parent shell.
+  - Use of back-ticks
+    - `` mydate=`date` `` value of mydate will be output of date.
+    - `` mydate=`echo Sunday that is today` ; echo $mydate ``
+  - Manipulations for variables within the shell environment
+    - We would like to have echo display a default value if variable is not available
+    - `` echo ${myvar:-hello} `` the `-` indicates if the value is not present what is the display value
+    - `` echo ${myvar:-"myvar is not set"} ``
+    - Set the value if it was not set already
+    - `` echo ${myvar:=hello} `` if absent / not set then set it to the value after `=`
+    - If it is present it will not change
+    - `` echo ${myvar:?} ``
