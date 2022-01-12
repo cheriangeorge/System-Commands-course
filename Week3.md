@@ -173,4 +173,36 @@
   - `declare +i myvar` - integer restriction removed 
   - `declare +l myvar` - lower case chars restriction removed
   - `declare +u myvar` - upper case chars restriction removed
-  - `declare +r myvar` - **Can't do once it is read-only**
+  - `declare +r myvar` - *Can't do once it is read-only*
+* Indexed arrays
+  - `declare -a arr`
+    - Declare `arr` as an indexed array
+  - `$arr[0]=”value”`
+    - Set value of element with index 0 in the array
+  - `echo ${arr[0]}`
+    - Value of element with index 0 in the array
+  - `echo ${#arr[@]}`
+    - NUmber of elements in the array
+  - `echo ${!arr[@]}`
+    - Display all indices used
+  - `echo ${arr[@]}`
+    - Display values of all elements of the array
+  - `unset ‘arr[2]’`
+    - Delete element with index 2 in the array
+  - `arr+=(“value”)`
+    - Append an element with a value to the end of the array
+* Associative arrays
+  - `declare -A hash`
+    - declare `hash` as an associative array
+  - `$hash[“a”]=”value”`
+    - set the value of element with index a in the array
+  - `echo ${hash[“a”]}`
+    - value of element with index a in the array
+  - `echo ${#hash[@]}`
+    - number of elements in the array
+  - `echo ${!hash[@]}`
+    - display all indices used
+  - `echo ${hash[@]}`
+    - display values of all elements of the array
+  - `unset ‘hash[“a”]’`
+    - delete an element with index a in the array
