@@ -89,3 +89,88 @@
         - no output if the files are identical 
       - Example : `ls $HOME /blah | tee file1 file2 | wc -l` - Here  `tee` keeps copy of output in a file and also sends output to `wc -l` for further processing.
       - Example : `ls $HOME /blah 2> /dev/null | tee file1 file2 | wc -l` to supress errors. Note location of `2>` is since the error is generated there.
+
+### Shell Variables - Part 1
+
+* Creation, inspection, modification, lists
+* Creating a variable
+  - `myvar="value string"`
+    - `myvar` can't start with a number, but you can mix alphanumeric and `_`
+    - No space around the `=`
+    - `"value string"` is the number,string or `command`. Output of a command can be assigned to myvar by enclosing the command in back-ticks.
+* Exporting a variable
+  - `export myvar="value string"` or
+  - `myvar="value string" ; export myvar`
+  - This makes the value of the variable available to a shell that is spawned by the current shell.
+* Using variable values
+  - `echo $myvar`
+  - `echo ${myvar}`
+    - can manipulate the value of the variable by inserting some commands within the braces.
+  - `echo "${myvar}_something"` 
+* Removing a variable
+  - `unset myvar`
+  - Removing value of a variable `myvar=`
+* Test is a variable is set
+  - `[[ -v myvar ]] ; echo $? `
+    - 0 : success (variable myvar is set)
+    - 1 : failure (variable myvar is not set)
+  - `[[ -z ${myvar+x} ]] ; echo $?`  (the `x` can be any string)
+    - 0 : success (variable myvar is not set)  
+    - 1 : failure (variable myvar is set)
+* Substitute default value
+  - If the variable `myvar` is not set, use "default" as its default value
+  - `echo ${myvar:-"default"}`
+    - if `myvar` is set display its value
+    - else display "default"
+* Set default value
+  - If the variable `myvar` is not set then set "default" as its value 
+  - `echo ${myvar:="default"}`
+    - if `myvar` is set display its value
+    - else set "default" as its value and display its new value
+* Reset value if variable is set
+  - If the variable `myvar` is set, then set "default" as its value
+  - `echo ${myvar:+"default"}`
+    - if `myvar` is set, then set "default" as its value and display the new value
+    - else display null 
+* List of variable names
+  - `echo ${!H*}`
+    - displays the list of names of shell variables that start with H
+* Length of string value
+  - `echo ${#myvar}`
+    - Display length of the string value of the variable `myvar`
+    - if `myvar` is not set then display 0
+* Slice of a string value
+  - `echo ${myvar:5:4}` (5 is the offset and 4 is the slice length)
+    - Display 4 characters of the string value of the variable `myvar` after skipping first 5 characters.
+  - if the slice length is larget than the length of the string then only what is available in the string will be displayed.
+  - the offset can also be negative. However you need to provide a *space* after the *:* to avoid confusion with the earlier usage of the `:-` symbol. The offset would come from the right hand side of the string.
+* Remove matching pattern
+  - `echo ${myvar#pattern}` - matches once
+  - `echo ${myvar##pattern}` - matches maximum possible
+  - Whatever is matching the pattern will be removed and the rest of it will be displayed on the screen.
+* Keep matching pattern
+  - `echo ${myvar%pattern}` - matches once
+  - `echo ${myvar%%pattern}` - matches maximum possible
+* Replace matching pattern
+  - `echo ${myvar/pattern/string}` - match once and replace with string
+  - `echo ${myvar//pattern/string}` - match max possible and replace with string
+* Replace matching pattern by location
+  - `echo ${myvar/#pattern/string}` - match at begining and replace with string
+  - `echo ${myvar/%pattern/string}` - match at the end and replace with string
+* Changing case
+  - `echo ${myvar,}` - Change the first character to lower case.
+  - `echo ${myvar,,}` - Change all characters to lower case.
+  - `echo ${myvar^}` - Change first character to uppercase
+  - `echo ${myvar^^}` - Change all characters to upper case
+  - The original value of the variable is not changed. Only the display will be modified as the trigger commands are within braces.
+* Restricting value types
+  - `declare -i myvar` - only integers assigned 
+  - `declare -l myvar` - Only lower case chars assigned
+  - `declare -u myvar` - Only upper case chars assigned
+  - `declare -r myvar` - Variable is read only
+  - Once a variable is set as read only you may have to restart the bash to be able to set it 
+* Removing restrictions
+  - `declare +i myvar` - integer restriction removed 
+  - `declare +l myvar` - lower case chars restriction removed
+  - `declare +u myvar` - upper case chars restriction removed
+  - `declare +r myvar` - **Can't do once it is read-only**
