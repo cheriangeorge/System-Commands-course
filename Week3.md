@@ -182,7 +182,7 @@
   - `echo ${arr[0]}`
     - Value of element with index 0 in the array
   - `echo ${#arr[@]}`
-    - NUmber of elements in the array
+    - Number of elements in the array. The `@` symbol is a wild character to run through all the elements in the array
   - `echo ${!arr[@]}`
     - Display all indices used
   - `echo ${arr[@]}`
@@ -206,3 +206,4 @@
     - display values of all elements of the array
   - `unset ‘hash[“a”]’`
     - delete an element with index a in the array
+  - Can do everything in the indexed array except append because there is nothing called the end of the array as there is no sequence for the elements of a hash
