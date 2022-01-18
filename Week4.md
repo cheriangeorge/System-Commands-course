@@ -25,3 +25,26 @@
         - Ubuntu
           - Mint
         - Knoppix
+* Commands
+  - `lsb_release -a` to find version of Operating System
+  - When searching for packages for this version of the OS you can search by OS code name eg: `focal`
+* Architectures
+  - amd64 | x86_64
+  - i386 | x86
+  - arm (RISC5 Sakthi)
+  - ppc64el | OpenPOWER
+  - all | noarch |src (not tied to any architecture)
+* Commands
+  - `uname -a` gives the kernel version and the type of architecture.
+* Tools 
+	- Package Type
+		- RPM
+			- Yellowdog Updater Modifier (yum)
+				- Red Hat Package Manager (rpm)
+				- Dandified YUM (dnf)
+		- DEB
+			- { synaptic	
+			- { aptitude
+				- Advanced Package Tool (apt)
+					- dpkg
+						- dpkg-deb
