@@ -293,4 +293,43 @@ ___
 
 ___
 4.4
-
+* ### More Examples using grep and egrep
+	- Get package names that are exactly 4 characters long
+		- `dpkg-query -W -f'${Section} ${binary:Package}\n' | egrep ' .{4}$'`
+	- Get package names that are from the math section
+		- `dpkg-query -W -f'${Section} ${binary:Package}\n' | egrep '^math'`	
+	- get lines that have an alphanumeric character at the begining of the line
+		- `cat chartype.txt | grep '^[[:alnum:]]'`
+	- get lines that have digits at the end of the line
+		- `cat chartype.txt | grep '[[:digit:]]$'`
+	- get lines that have a ctrl character
+		- `cat chartype.txt | grep '[[:ctrl:]]'`
+		- `cat chartype.txt | grep -v '[[:ctrl:]]'` will show the reverse including the empty lines
+	- get lines that do not have a ctrl character
+		- `cat chartype.txt | grep '[^[:ctrl:]]'` (This does not work as intended)
+	- get lines that have printable characters (exclude blank lines)
+		- `cat chartype.txt | grep '[[:print:]]'`
+	- get lines that have blank space characters (exclude blank lines)
+		- `cat chartype.txt | grep '[[:blank:]]'`
+	- `[[:graph:]]` is used to match any non space character
+	- To skip blank lines
+		- `cat chartypes.txt | egrep -v '^$'` Here `-v` excludes and `'^$'` captures empty lines
+	- Identify a line with a 12 digit number
+		- `egrep '[[:digit:]]{12}' patterns.txt`
+	- Identify a line with a 6 digit number (Use word boundaries)
+		- `egrep '\b[[:digit:]]{6}\b' patterns.txt`
+	- Match lines containing Roll Number of the form MM22B001
+		- `egrep '\b[[:alpha:]]{2}[[:digit:]]{2}[[:alpha:]][[:digit:]]{3}\b' patterns.txt`
+	- Match urls without the http
+		- `egrep '\b[[:alnum:]]+\.[[:alnum:]]+\b' patterns.txt`
+	- **Trimming text**
+		- top to bottom using `head` and `tail`
+		- sidways or horizontal trimming of lines using `cut`
+			- `cut -c 1-4 fields.txt` displays only first 4 characters. Can also use `-4` for begining to 4th place or `2-` to cut from 2nd place to end.
+			- `cat fields.txt | cut -d " " -f 1` - This uses " " as a delimiter `-d` and prints only the first field `-f 1`
+			- `cat fields.txt | cut -d ' ' -f 1-2` - to get both fields
+			- Capture `hello world` from `1234;hello world,line 1`
+				- `cat fields.txt | cut -d ';' -f 2 | cut -d "," -f 1`
+				- `egrep ';.*,' fields.txt` (To trim pass the output of grep to `sed`)
+			- Combining this with top to bottom trimming
+				- `cat fields.txt | cut -d ';' -f 2 | cut -d "," -f 1 | head -n 2 | tail -n 1`
