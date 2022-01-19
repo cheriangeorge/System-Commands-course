@@ -153,20 +153,23 @@ ___
 	- POSIX standard
 		- IEEE 1003.1-2001 IEEE Standard for IEEE Information Technology – Portable Operating System Interface (POSIX(TM))
 		- [Refer](https://standards.ieee.org/standard/1003_1-2001.html)
+	- POSIX defines regular expressions to be of 2 different types - Basic and Extended.
 * Regex
 	- regex is a pattern template to filter text
 	- BRE: POSIX Basic Regular Expression engine
 	- ERE: POSIX Extended Regular Expression engine
 * Why learn regex?
+	- PRocess some input from the user or perform some string operations.
 	- Languages: Java, Perl, Python, Ruby, ...
 	- Tools: grep, sed, awk, ...
 	- Applications: MySQL, PostgreSQL, ...
-
 * Usage
-	- `grep ‘pattern’ filename`
+	- `grep ‘pattern’ filename` - to operate on every line in the file
 	- `command | grep ‘pattern’`
+		- the `grep` command operates line after line. A common feature in many utilities in linux.
+		- enclose pattern in single quotes 
 	- Default engine: BRE
-	- Switch to use ERE :
+	- Switch to use ERE in 2 ways:
 		- `egrep ‘pattern’ filename`
 		- `grep -E ‘pattern’ filename`
 * ### Special characters (BRE & ERE)
@@ -243,3 +246,51 @@ ___
 |  Concatenation 	|
 |  ^ $ anchors 	|
 |  \| alternation 	|
+
+* ### Examples using grep
+	- Basic use
+		- `grep 'Raman' names.txt` matches line with Raman Singh
+		- `cat names.txt | grep 'ai'` matches line with Snail
+	- Usage of `.`
+		- `cat names.txt | grep 'S.n'` matches lines with Singh and Sankaran
+	- Usage of `$`
+		- `cat names.txt | grep '.am$' ` matches lines that end with xam
+	- Escaping a `.`
+		- `cat names.txt | grep '\.'` matches lines that have a `.`
+	- Using anchors at the begining
+		- `cat names.txt | grep '^M'` matches lines begining with m
+	- Case insensitive matching with the `i` flag
+		- `cat names.txt | grep -i '^e'` matches lines begining with e or E.
+	- Word boundaries `\b`
+		- `cat names.txt | grep 'am\b'` matches lines with words that end with 'am'
+	- Use of square brackets `[]` to give options
+		- `cat names.txt | grep 'M[ME]'` matches lines containing 'MM' or 'ME'
+		- `cat names.txt | grep '\bS.*[mn]'` matches lines containing words begining with S and ending with m or n.
+		- `cat names.txt | grep '[aeiou][aeiou]'` matches lines that have 2 vowels side by side
+		- `cat names.txt | grep 'B90[1-4]'` matches words begining with B90 and ending with range 1-4. 
+		- `cat names.txt | grep 'B90[^1-4]'` matches words begining with B90 and ending with characters other than the range 1-4. A hat inside square brackets implies negation
+	 - Specifying occurances using escaped braces
+	 	- `cat names.txt | grep 'M\{2\}'` matches lines which have 'MM'
+	 	- `cat names.txt | grep 'M\{1,2\}'` matches lines which have one or 2 'M's
+	 - Grouping patterns that are matched using parenthesis. Repeating whatever is matched by using `\1`
+	 	- `cat names.txt | grep '\(ma\)'` matches lines containing 'ma'
+	 	- `cat names.txt | grep '\(ma\).*\1'` matches a pattern begining with 'ma' and ending with 'ma' eg: U'mair Ahma'd. The `\1` back-references the first parenthesis.
+	 	- `cat names.txt | grep '\(.a\).*\1'` matches a pattern like 'Mary Ma'nickam
+	 	- `cat names.txt | grep '\(a.\)\{3\}'` matches a pattern like S'agayam'
+	 - Using Extended Regular Expression Engine
+	 	- `cat names.txt | egrep 'M+'` will match lines where M occures one or more times.
+	 	- `cat names.txt | egrep '^M+'` will match lines where M occures one or more times at the begining of a line.
+	 	- `cat names.txt | egrep '^M*'`
+	 		- `cat names.txt | egrep '^M*a'` matches lines where 'M' may or may not occur followed by 'a'
+	 		- `cat names.txt | egrep '^M.*a'` matches lines where 'M' has to occur at the begining of a line followed by any number of characters and ending with 'a'
+	 		- Watch out for the interpretation of `*`
+	 	- `cat names.txt | egrep '(ma)+'` 'ma' could occur one or more times.
+	 	- `cat names.txt | egrep '(ma)*'` 'ma' could occur zero or more times.
+	 - Use of pipe as an alternation between 2 patterns of strings to be matched
+	 	- `cat names.txt | egrep '(ED|ME)'` matches lines containing 'ED' or 'ME'
+	 	-  `cat names.txt | egrep '(Anu|Raman)'` matches lines containing 'Anu' or 'Raman'. Length of string on both sides of pipe need not be the same.
+	 	-  `cat names.txt | egrep '(am|an)$'` matches lines containing 'am' or 'an' at the end.
+
+___
+4.4
+
