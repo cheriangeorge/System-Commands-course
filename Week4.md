@@ -103,6 +103,44 @@ ___
 	- This information is stored in the folder `/etc/apt`
 	- Uncommented lines in the file `sources.list` have the debian/ubuntu sources 
 	- A directory `sources.list.d` stores sources for third party software. Allows `apt update` to know new versions to download from repositories stored in these files
-	- `sudo apt-get update` fetches updates and keeps them in cache
-	- `sudo apt-get upgrade` upgrades the packages. It lists how many updates are going to be affected and how much data is going to be downloaded.
-	- 
+	- Synchronize package overview files - `sudo apt-get update` fetches updates and keeps them in cache
+	- Upgrade all installed packages - `sudo apt-get upgrade` upgrades the packages. It lists how many updates are going to be affected and how much data is going to be downloaded.
+	- `sudo apt autoremove` to remove unused packages that were earlier installed to satisfy a particular dependency but are not needed now.
+	- Install a package - `sudo apt-get install packagename`
+	- `sudo apt-get remove packagename` to remove a particular package
+	- `sudo apt-get reinstall packagename` to fix problems caused by accedential file deletions.
+	- Clean local repository of retreived package files - `apt-get clean`
+	- Purge package files from the system - `apt-get purge package`
+* Package management in Ubuntu using `dpkg`
+	- Allows installation directly from a `.deb` file. Package management at a lower level.
+	- `/var/lib/dpkg` has some information about the packages
+		- Files - `arch`,`available`,`status`
+			- `cat arch` displays the architectures for which packages have been installed on the system - `amd64`,`i386`
+			- `less available` displays list of packages with info. 
+			- `less status` displays if a particular package is installed or not
+		- Folder - `info`
+			- contains a set of files for each of the packages that have been installed
+			- `ls wget*` will give files with information about `wget`
+				- `more wget.conffiles`gives location of configuration file 
+				- `more wget.list` displays list of files that would get installed on the system with the package
+				- `more wget.md4sums` displays the listof md5sums of the installed files. (Used to catch tampering)
+* Using `dpkg`
+	- List all packages whose names match the pattern
+		- `dpkg -l pattern`
+	- List installed files that came from packages
+		- `dpkg -L package`
+	- Display/Report the status of packages
+		- `dpkg -s package`
+	- Search installed packages for a file
+		- `dpkg -S pattern` 
+		- eg : `dpkg -S /usr/bin/perl` shows the package from which the executable has come. ie : `perl-base`
+	- To query the dpkg database about all the packages - `dpkg-query`
+		- Example `dpkg-query -W -f='${Section} ${binary:Package}\n' | sort | less`
+		- Example where output is filtered `dpkg-query -W -f='${Section} ${binary:Package}\n' | grep shells`
+* Installing a deb package
+	- `dpkg -i package_version-revision_architecture.deb`
+	- not a good idea since it may have some dependencies that will have to be taken care of manually
+	- Do not download deb files from unknown sources and install it on the system
+	- By default use package management pointing to a reliable repository
+	- Uninstalling packages using `dpkg` is NOT recommended. You may be removing a package that is required by many other packages.
+* When compatibility issues cannot be resloved one can use `snap` or `docker` as alternatives when you are unable to install a particular version of a package.
