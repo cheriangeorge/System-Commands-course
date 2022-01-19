@@ -88,3 +88,21 @@
 	- SHA256
 		- 256 bit string
 		- `sha256sum filename`
+
+___
+4.2
+* Who can install packages in Linux OS ?
+	- administrators
+	- sudoers in the case of Ubuntu
+	- Only sudoers can install/upgrade/remove packages
+	- a sudo command can be executed by those who are listed in `/etc/sudoers`
+	- Command `sudo cat /etc/sudoers` . If the current `$USER` is not in the sudoers file the incident will be reported.
+	- In the file the users listed under `# User privilege specification` have sudo permission.
+	- sudo attempts and authentication failures get recorded in `/var/log/auth.log`. View using `sudo tail -n 100 /var/log/auth.log`
+* When installing a package the system knows the website/server from which the packages have to be downloaded
+	- This information is stored in the folder `/etc/apt`
+	- Uncommented lines in the file `sources.list` have the debian/ubuntu sources 
+	- A directory `sources.list.d` stores sources for third party software. Allows `apt update` to know new versions to download from repositories stored in these files
+	- `sudo apt-get update` fetches updates and keeps them in cache
+	- `sudo apt-get upgrade` upgrades the packages. It lists how many updates are going to be affected and how much data is going to be downloaded.
+	- 
