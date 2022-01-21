@@ -337,3 +337,28 @@ ___
 * ### Own experiments using regex
 	- Get strictly alphanumeric words
 		- `cat test.txt | egrep '\b([a-z]+[0-9]+|[0-9]+[a-z]+)\b'`
+
+* ### REPLIT Code with Us session
+	- Getting files with a specific permission pattern from a file
+		- `cat lsinfo.txt | grep 'rw-r--r--' ;`
+	- Get all files excluding directories in lsinfo.txt whose last modified date is in January
+		- `cat lsinfo.txt | grep '^[^d].*Jan'`
+	- To count the number of lines that starts with a capital letter and contains the word it (case-sensitive)
+		- `cat twocities.txt | grep -c '^[[:upper:]].*\bit\b' `
+	- to display all the lines that does not contain the word "we" in it
+		- `cat twocities.txt | egrep -v '\bwe\b'`
+	- using cut to display only the countries and its capitals of file.txt in the format Country, Capital (eg in file.txt : India, New Delhi; Asia)
+		- `cat file.txt | cut -d ';' -f 1 `
+	- all the countries in the file file.txt sorted alphabetically by name in reverse order
+		- `cat file.txt | cut -d ',' -f 1 | sort -r`
+	- cut command to extract the continents (including the one white space in the beginning) of the first 5 lines of file.txt and store it in another file named continent.txt
+		- `head -n 5 file.txt | cut -d ';' -f 2 > continent.txt `
+	- list the names of all the c++ files in the current directory which contains a line such that the line starts with the string void main() and ends with the character {. There should be one or more spaces/tabs between the characters { and ).
+		- `egrep '^void[[:space:]]main\(\)[[:space:]]+{$' *.cpp | cut -d '.' -f 1`
+		- `grep '^void[[:space:]]main()[[:space:]][[:space:]]*{$' *.cpp | cut -d '.' -f 1`
+	-  print the count of these files in the following line
+		- `egrep -l '^void[[:space:]]main\(\)[[:space:]]+{$' *.cpp |tee /dev/tty | wc -l ` 
+		- `|tee /dev/tty` is used to print the output to terminal and also pipe the output to the next command.
+		- `-l` flag for `grep` and `egrep` prints the name of each input file that matches 
+	- command to list all the packages installed on your machine and their versions in the format Package Version in a sorted manner
+		- `dpkg-query -W -f='${Package} ${Version}\n' | sort`
