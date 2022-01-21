@@ -333,3 +333,7 @@ ___
 				- `egrep ';.*,' fields.txt` (To trim pass the output of grep to `sed`)
 			- Combining this with top to bottom trimming
 				- `cat fields.txt | cut -d ';' -f 2 | cut -d "," -f 1 | head -n 2 | tail -n 1`
+
+* ### Own experiments using regex
+	- Get strictly alphanumeric words
+		- `cat test.txt | egrep '\b([a-z]+[0-9]+|[0-9]+[a-z]+)\b'`
