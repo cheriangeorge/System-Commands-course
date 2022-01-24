@@ -2,4 +2,4 @@
 ___
 
 * Week 4
-  - Lecture 4.3 - [notes.txt](notes.txt) 
+  - Lecture 4.3 - [notes.txt](Example_Files/notes.txt) 
