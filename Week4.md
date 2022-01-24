@@ -163,7 +163,6 @@ ___
 	- Languages: Java, Perl, Python, Ruby, ...
 	- Tools: grep, sed, awk, ...
 	- Applications: MySQL, PostgreSQL, ...
-- [Sample Names/Roll-No](names.txt)
 * Usage
 	- `grep ‘pattern’ filename` - to operate on every line in the file
 	- `command | grep ‘pattern’`
@@ -249,6 +248,7 @@ ___
 |  \| alternation 	|
 
 * ### Examples using grep
+	- [Example File names.txt (Containing Names/Roll-No)](Example_Files/names.txt)
 	- Basic use
 		- `grep 'Raman' names.txt` matches line with Raman Singh
 		- `cat names.txt | grep 'ai'` matches line with Snail
