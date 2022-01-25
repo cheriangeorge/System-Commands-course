@@ -243,3 +243,90 @@
     - `` echo ${myvar:?"myvar is not set"} `` displays a little more information and a debug message. `bash: myvar: myvar is not set`
     - Unset the value of a variable using `unset myvar`
     - ``echo ${myvar:+HELLO}`` displays the message if the variable is present
+  - Inspecting all the variables in the shell environment
+    - `printenv`
+    - `env`
+    - `echo ${!H*}` displays the names of variables begining with 'H' - `!` indicates names of the variables instead of value.
+  - Counting characters
+    - `` mydate=`date` `` stores the output of the `date` command in `mydate`
+    - `echo ${#mydate}` prints the length of the value present in mydate.
+    - length of a non-existing variable is zero
+  - Features of using colon : within braces {}
+    - Extracting part of a string from the value of a particular variable.
+      - `echo ${mydate:6:10}`
+      - `echo ${myvar:3:3}` will print `def` for `myvar=abcdefg` ie: 3 characters after the offset (position 3)
+    - Using negative offset
+      - `echo ${myvar: -3:3}` and `echo ${myvar: -3:4}` will print `efg` for `myvar=abcdefg`
+        - note `-` is to be preceeded with a blank to avoid confusion
+        - asking for more characters, will print just what is available
+      - `echo ${myvar: -3:2}` will print `ef` for `myvar=abcdefg`
+    - Extracting a portion of the date
+      - Output of `date` is `Tuesday 25 January 2022 09:10:20 PM IST`
+      - Output of `date +"%d %B %Y"` is `25 January 2022`
+      - if `` mydate=`date` `` then `echo ${mydate:8:16}` will also print `25 January 2022`
+    - Extracting patterns from a string
+      - `myvar=filename.txt.jpg`
+      - `echo ${myvar#*.}` minimal matching displays `txt.jpg`
+      - `myvar=filename.somethingelse.jpeg`
+      - `echo ${myvar##*.}` maximal matching displays `jpeg`
+      - `echo ${myvar%*.}` displays filename.somethingelse
+        - the `%` is used to indicate what has not been matched. (minimal)
+      - `echo ${myvar%%*.}` displays filename
+        - the `%` is used to indicate what has not been matched. (maximal)
+      - Can be combined `echo ${myvar%%.*}.${myvar##*.}` to get `filename.jpeg`
+     - Replacing what has been matched
+      - Pattern matching in Linux usually goes with a pair of forward slashes.
+      - Convert all `e` to `E` in a string
+        - `echo ${myvar/e/E}` replaces only the first occurance of `e`
+        - `echo ${myvar//e/E}` replaces all occurances of `e`
+      - Replace characters at the begining of a string
+        - `echo ${myvar/#f/F}` replaces the occurance of `f` in the begining of the string with `F`. The `#` indicates the begining of the string
+      - Replace characters at the end of a string
+        - `echo ${myvar/%g/G}` replaces the occurance of `g` at the end of the string with `G`. The `%` indicates the end of the string.
+      - Replace jpeg with jpg, only if it is at the end of a string
+        - `echo ${myvar/%jpeg/jpg}`
+     - Modifying and storing it in a variable
+        - `` myvar1=`echo ${myvar//jpeg/jpg}` ``
+     - Generic command to remove day from date
+        - `echo ${mydate#*day}`
+     - Upper case to lower case and vice-versa
+        - `echo ${mydate,}` changes first character to lowercase
+        - `echo ${mydate,,}` converts all characters to lowercase
+        - `echo ${mydate^}` changes first character to uppercase
+        - `echo ${mydate^^}` changes all characters to uppercase
+     - Restricting values that can be assigned to shell variables using `declare`
+        - `declare` is a shell builtin
+        - `+` to **unset** a restriction and `-` to **set** it  (Note : counterintutuve )
+        - `-a` for indexed arrays (need not be ordered indexes)
+        - `-A` for associative arrays (dictionaries)
+        - `-i` for integers
+        - `-u` for uppercase conversion on assignment
+        - Integer restriction
+            - `declare -i mynum`
+            - `mynum=10` will assign 10 to mynum
+            - `mynum=hello` will assign 0 to mynum
+        - lowercase restriciton
+            - `declare -l myvar`
+            - `myvar=hello` assigns hello to myvar
+            - `myvar=BELLOW` converts BELLOW to lowercase and assigns it to myvar.
+        - removing a restriction
+            - `declare +l myvar`
+            - the value is still contained after removing the restriction but you can now store upper case characters as well
+        - declaring a read-only variable
+            -  `declare -r myvar`
+            -  once a variable has been set as read only, you cannot change its value and you cannot remove the read-only restriction using `+r`
+            -  `declare +r myvar` gives the error `bash: declare: myvar: readonly variable`
+      - Arrays
+        - `declare -a arr`
+        - `arr[0]=Sunday`
+        - `arr[1]=Monday`
+        - `echo ${arr[0]}`
+        - `echo ${arr[1]}` 
+        - `echo ${#arr[@]}` gives number of elements in the array
+        - `echo ${arr[@]}` displays all values
+        - `echo ${!arr[@]}` displays the indices`
+        - You can have any index without filling up intermediate indices. Indices are not necessarily contiguous.
+        - `arr[100]=Friday` is also valid
+        - Removing an element from an array = `unset 'arr[100]'`
+        - Appending to an array `arr+=(Tuesday)`
+        - Populating an array in one go `arr=(Sunday Monday Tuesday)`
