@@ -240,4 +240,6 @@
     - Set the value if it was not set already
     - `` echo ${myvar:=hello} `` if absent / not set then set it to the value after `=`
     - If it is present it will not change
-    - `` echo ${myvar:?} ``
+    - `` echo ${myvar:?"myvar is not set"} `` displays a little more information and a debug message. `bash: myvar: myvar is not set`
+    - Unset the value of a variable using `unset myvar`
+    - ``echo ${myvar:+HELLO}`` displays the message if the variable is present
