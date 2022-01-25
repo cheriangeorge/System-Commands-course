@@ -329,4 +329,13 @@
         - `arr[100]=Friday` is also valid
         - Removing an element from an array = `unset 'arr[100]'`
         - Appending to an array `arr+=(Tuesday)`
-        - Populating an array in one go `arr=(Sunday Monday Tuesday)`
+        - Populating an array in one go `arr=(Sunday Monday Tuesday)` . The indices are sequential
+      - Associative Arrays / Hashes
+        - `declare -A hash`
+        - `hash[0]="Amal"`
+        - `hash["mm12b001"]="Charlie"`
+        - `echo ${!hash[@]}` to get indices
+        - `echo ${hash["mm12b001"]}`
+      - File names in a shell variable 
+        - ``myfiles=(`ls`) ``
+        - `echo ${myfiles[@]}`
