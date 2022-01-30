@@ -76,7 +76,7 @@
     - `PREFIX` is the replacement string
   - `3,5s/PREFIX/prefix/` substitutes prefix for PREFIX from line 3 to 5
 
-##### Commands for editing in ed
+##### Commands for editing in ed / ex 
 
 |  Command 	|  Action 	|
 |---	|---	|
