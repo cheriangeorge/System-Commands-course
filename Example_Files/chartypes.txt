@@ -1,0 +1,8 @@
+hello : alphabetical stuff : 5g
+l : start lower end upper : H
+L : start upper end lower : h
+5g : alpha numeric stuff : 42
+42 : solution to everything :
+  : start with control c end with dot : .
+, : start with comma end with equals : =
+  : start with blank end with control char :  
