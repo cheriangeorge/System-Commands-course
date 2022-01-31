@@ -298,7 +298,9 @@ ___
 	- Get package names that are exactly 4 characters long
 		- `dpkg-query -W -f'${Section} ${binary:Package}\n' | egrep ' .{4}$'`
 	- Get package names that are from the math section
-		- `dpkg-query -W -f'${Section} ${binary:Package}\n' | egrep '^math'`	
+		- `dpkg-query -W -f'${Section} ${binary:Package}\n' | egrep '^math'`
+	- [Example File chartype.txt (Containing few lines with control character)](Example_Files/chartype.txt)	
+		- control character inserted using `echo $'\cc' >> chartype.txt`
 	- get lines that have an alphanumeric character at the begining of the line
 		- `cat chartype.txt | grep '^[[:alnum:]]'`
 	- get lines that have digits at the end of the line
