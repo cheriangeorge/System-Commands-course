@@ -39,11 +39,11 @@
 
 | Command  | Action  |
 |---|---|
-|	``Alt`+`backspace``	|	Cut the word before cursor	|
-|	``Alt`+`d``	|	Cut the word after cursor	|
-|	``Ctrl`+`k``	|	Cut from cursor to end of line	|
-|	``Alt`+`k``	|	Cut from cursor to end of the sentence	|
-|	``Ctrl`+`y``	|	Paste the content at the cursor	|
+|	`Alt`+`backspace`	|	Cut the word before cursor	|
+|	`Alt`+`d`	|	Cut the word after cursor	|
+|	`Ctrl`+`k`	|	Cut from cursor to end of line	|
+|	`Alt`+`k`	|	Cut from cursor to end of the sentence	|
+|	`Ctrl`+`y`	|	Paste the content at the cursor	|
 
 ___
 
