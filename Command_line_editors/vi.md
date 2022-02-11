@@ -8,6 +8,19 @@
     - `I` `O` `A`
   - ex mode
     - `:`
+* Command mode is open by default when you open the file
+* In the insert mode, what you type will go into the text buffer. 
+* `i` `o` and `a` start the insert mode 
+	- `i` will insert characters at the current position of the cursor
+	- `I` will insert characters at the begining of the line where the cursor is present
+	- `o` will insert a new line below the current line 
+	- `O` will append (open) a new line above the current line 
+	- `a` will append after the cursor
+	- `A` will append at the end of the line 
+* The `ex` mode is enabled by pressing the `:`. This mode allows one to enter `ed`/`ex` line editor commands.
+* What you press will be interpreted differently depending on which mode you are in. (Always watch out in the bottom of the screen whether you are in isert mode or command mode)
+  - Backspace will delete only in the insert mode. In the command mode it will move left.
+Space in the insert mode will insert a space. In the command mode it will take the cursor to the right.
 ___
 #### vi help
 
@@ -93,6 +106,12 @@ ___
 |	`p`	|	Paste buffer into text after current line	|
 |	`u`	|	undo previous action	|
 
+* `y` is for yanking.
+* Copy and paste : press `5``y``y` to copy 5 lines and `p` to paste them. `y` and `enter` is the same as pressing `2``y``y`.
+* `1,5s/line/LINE/` to substitute `LINE` for `line` on the first 5 lines. First occurance.
+* `u` to undo change
+* `1,5s/line/LINE/g` to substitute `LINE` for `line` on the first 5 lines multiple times.
+
 ##### Searching Text
 
 | Command  | Action  |
@@ -108,3 +127,4 @@ ___
 ___
 ##### References
 * [vimhelp](https://vimhelp.org/)
+* [Vim Cheat Sheet](https://vim.rtorr.com/)
