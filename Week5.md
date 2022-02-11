@@ -90,3 +90,10 @@
 |  **s** 	|  **s**earch for regex pattern 	|
 |  **m** 	|  **m**ove current line to position 	|
 |  **u** 	|  **u**ndo latest change 	|
+
+##### Using nano
+* [Link](Command_line_editors/nano.md)
+##### Using vi
+* [Link](Command_line_editors/vi.md)
+##### Using emacs
+* [Link](Command_line_editors/emacs.md)
