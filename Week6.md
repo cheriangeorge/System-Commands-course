@@ -52,7 +52,7 @@
 |	`+ token`	|	Interpret token as string even if its a keyword	|
 |	`(exprn)`	|	Return the value of expression exprn	|
 
-	- Example [expr-examples.sh](Example_Files/expr-examples.sh)
+* Example [expr-examples.sh](Example_Files/expr-examples.sh)
 
 * Bench Calculator 
 	- An arbitaty preciscion calculator language
