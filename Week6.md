@@ -11,20 +11,22 @@
 * Combining conditions
   - `[ $a -gt 3 ] && [ $a -gt 7 ]`
   - `[ $a -lt 3 ] || [ $a -gt 7 ]`
+  - Example [condition-examples.sh](Example_Files/condition-examples.sh)
 
 * Shell arithmetic
-  - Using `let`
+	- Using `let`
 		- `let a=$1+5`
 		- `let "a= $1 + 5"`
 	- Using `expr`
-	  - `expr $a +20`
-	  - `expr "$a + 20"`
-	  - `b=$( expr $a + 20 )`
+		- `expr $a +20`
+		- `expr "$a + 20"`
+		- `b=$( expr $a + 20 )`
 	- Using `$[ expression ]`
-	  - `b=$[ $a + 10 ]`
+		- `b=$[ $a + 10 ]`
 	- Using `$(( expression ))`
-	  - `b=$(( $a + 10 ))`
-	  - `(( b++ ))`- Without $. Not intending to return. Useful for incrementing
+		- `b=$(( $a + 10 ))`
+		- `(( b++ ))`- Without $. Not intending to return. Useful for incrementing
+	- Example [arithmetic-example-1.sh](Example_Files/arithmetic-example-1.sh)
 * ### expr command operators
 
 | Expression  | Description  |
@@ -50,6 +52,8 @@
 |	`+ token`	|	Interpret token as string even if its a keyword	|
 |	`(exprn)`	|	Return the value of expression exprn	|
 
+	- Example [expr-examples.sh](Example_Files/expr-examples.sh)
+
 * Bench Calculator 
 	- An arbitaty preciscion calculator language
 	- `bc -l`
@@ -59,6 +63,9 @@
 	
 * heredoc feature 
 	- helps while passing long strings without having to worry about `\n` etc.
+	- Example [heredoc-example-1.sh](Example_Files/heredoc-example-1.sh)
+	- Example [heredoc-example-2.sh](Example_Files/heredoc-example-2.sh)
 	- A hyphen tells bash to ignore leading tabs
 	
 * PATH variable
+	- Example [path-example.sh](Example_Files/path-example.sh)
