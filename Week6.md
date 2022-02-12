@@ -69,3 +69,4 @@
 	
 * PATH variable
 	- Example [path-example.sh](Example_Files/path-example.sh)
+		- IFS (Internal Field Seperator)
