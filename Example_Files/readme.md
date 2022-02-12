@@ -6,6 +6,6 @@ ___
   - Lecture 4.4 - [chartype.txt](chartype.txt)
 * Week 6
   - Lecture 6.1 - [condition-examples.sh](condition-examples.sh)
-  - Lecture 6.1 - [arithmetic-example-1.sh](arithmitic-example-1.sh)
+  - Lecture 6.1 - [arithmetic-example-1.sh](arithmetic-example-1.sh)
 
 Note : To download these files to your local system right click on 'Raw' and then select 'Save link as'
