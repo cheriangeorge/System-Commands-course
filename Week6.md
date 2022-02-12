@@ -39,7 +39,7 @@
 |	`a < b`	|	Return 1 if a less than b; else return 0	|
 |	`a <= b`	|	Return 1 if a less than or equal to b; else return 0	|
 |	`a = b`	|	Return 1 if a equals b; else return 0	|
-|	`a | b`	|	Return a if neither argument is null or 0; else return b	|
+|	`a \| b`	|	Return a if neither argument is null or 0; else return b	|
 |	`a & b`	|	Return a if neither argument is null or 0; else return 0	|
 |	`a != b`	|	Return 1 if a is not equal to b; else return 0	|
 |	`str : reg`	|	Return the position upto anchored pattern match with BRE str	|
