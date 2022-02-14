@@ -290,3 +290,41 @@ echo selection completed with $i
 	- Can source a file with functions to use it in a shell script
 	- `source mylib.sh`
 	- Do not give set uid permission to the scripts unless you know what you are doing
+
+___
+L6.4
+### awk
+##### A language for processing fields and records
+
+* Introduction
+	- It is a programming language
+	- awk is an abbreviation of the names of three people who developed it: Aho, Weinberger & Kernighan
+	- It is a part of POSIX, IEEE 1003.1-2008
+	- Variants: nawk, gawk, mawk ...
+	- gawk contains features that extend POSIX
+
+* Execution model
+	- Input stream is a set of records
+	- Eg., using "\n" as record separator, lines are records
+	- Each record is a sequence of fields
+	- Eg., using " " as field separator, words are fields
+	- Splitting of records to fields is done automatically
+	- Each code block executes on one record at a time, as matched by the pattern of that block
+
+* Usage
+	- Single line at the command line
+		- ```cat /etc/passwd | awk -F”:” ‘{print $1}’```
+	- Script interpreted by awk
+		- `./myscript.awk /etc/passwd`
+		```awk
+		#!/usr/bin/gawk -f
+		BEGIN {
+			FS=":"
+			}
+		{
+			print $1
+		}
+		```
+		
+* Built-in variables
+
