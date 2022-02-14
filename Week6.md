@@ -316,6 +316,7 @@ L6.4
 		- ```cat /etc/passwd | awk -F”:” ‘{print $1}’```
 	- Script interpreted by awk
 		- `./myscript.awk /etc/passwd`
+		- `myscript.awk`
 		```awk
 		#!/usr/bin/gawk -f
 		BEGIN {
