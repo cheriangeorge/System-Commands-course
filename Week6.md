@@ -297,7 +297,7 @@ L6.4
 ##### A language for processing fields and records
 
 * Introduction
-	- It is a programming language
+	- awk is a programming language, quick to code and fast in execution
 	- awk is an abbreviation of the names of three people who developed it: Aho, Weinberger & Kernighan
 	- It is a part of POSIX, IEEE 1003.1-2008
 	- Variants: nawk, gawk, mawk ...
@@ -409,3 +409,100 @@ L6.4
 
 * #### Functions and commands
 
+| Operation  | Commands  |
+|---|---|
+|	Arithmetic	|	`atan2` `cos` `exp` `int` `log` `rand` `sin` `sqrt` `srand`	|
+|	String	|	`asort` `asorti` `gsub` `index` `length` `match` `split` `sprintf` `strtonum` `sub` `substr` `tolower` `toupper`	|
+|	Control Flow	|	`break` `continue` `do` `while` `exit` `for` `if` `else` `return`	|
+|	Input / Output	|	`close` `fflush` `getline` `next` `nextline` `print` `printf`	|
+|	Programming	|	`extension` `delete` `function` `system`	|
+|	bit-wise	|	`and` `compl` `lshift` `or` `rshift` `xor`	|
+
+* #### arrays
+	- Associative arrays
+	- Sparse storage
+	- Index need not be integer
+	- `arr[index]=value`
+	- `for (var in arr)`
+	- `delete arr[index]`
+
+* #### Loops
+	```awk
+	for (a in array)
+	{
+		print a
+	}
+	```
+	```awk
+	if (a > b)
+	{
+		print a
+	}
+	```
+	```awk
+	for (i=1;i<n;i++)
+	{
+		print i
+	}
+	```
+	```awk
+	while (a < n)
+	{
+		print a
+	}
+	```
+	```awk
+	do
+	{
+		print a
+	} while (a<n)
+	```
+* #### Functions
+	- `cat infile |awk -f mylib -f myscript.awk`
+	- `mylib`
+	```
+	function myfunc1()
+	{
+		printf “%s\n”, $1
+	}
+	function myfunc2(a)
+	{
+		return a*rand()
+	}
+	```
+	- `myscript.awk`
+	```
+	BEGIN
+	{
+		a=1
+	}
+	{
+		myfunc1()
+		b = myfunc2(a)
+		print b
+	}
+	```
+	
+* #### Pretty printing
+	- `printf "format", a, b, c`
+		- format - `%[modifier]control-letter`
+			- modifier
+				- `width`
+				- `prec`
+				- `-`
+			- control-letter
+				- `c` ascii char
+				- `d` integer
+				- `i` integer
+				- `e` scientific notation
+				- `f` floating notation
+				- `g` shorter of scientific & float
+				- `o` octal value
+				- `s` string text
+				- `x` hexadecimal value
+				- `X` hexadecimal value in caps
+
+* #### bash + awk
+	- Including awk inside shell script
+	- heredoc feature
+	- Use with other shell scripts on command line using pipe
