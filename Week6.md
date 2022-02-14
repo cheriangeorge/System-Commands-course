@@ -329,3 +329,83 @@ L6.4
 		
 * Built-in variables
 
+| Variable  | Description  |
+|---|---|
+|	`ARGC`	|	Number of arguments supplied on the command line (except those that came with -f & -v options)	|
+|	`ARGV`	|	Array of command line arguments supplied; indexed from 0 to ARGC-1	|
+|	`ENVIRON`	|	Associative array of environment variables	|
+|	`FILENAME`	|	Current filename being processed	|
+|	`FNR`	|	Number of the current record, relative to the current file	|
+|	`FS`	|	Field separator, can use regex	|
+|	`NF`	|	Number of fields in the current record	|
+|	`NR`	|	Number of the current record	|
+|	`OFMT`	|	Output format for numbers	|
+|	`OFS`	|	Output fields separator	|
+|	`ORS`	|	Output record separator	|
+|	`RS`	|	Record separator	|
+|	`RLENGTH`	|	Length of string matched by match() function	|
+|	`RSTART`	|	First position in the string matched by match() function	|
+|	`SUBSEP`	|	Separator character for array subscripts	|
+|	`$0`	|	Entire input record	|
+|	`$n`	|	nth field in the current record	|
+
+* #### awk scripts
+	- ##### `pattern {procedure}`
+	- pattern
+		- **BEGIN**
+		- **END**
+		- general expression
+		- **regex**
+		- Relational Expression
+		- Pattern-matching expression
+	- procedure
+		- Variable assignment
+		- Array assignment
+		- Input / output commands
+		- Build-in functions
+		- User-defined functions
+		- Control loops
+
+* #### Execution
+	- `BEGIN { commands; }`
+		- Executed once, before files are read
+		- Can appear anywhere in the script
+		- Can appear multiple times
+		- Can contain program code
+	- `END { commands; }`
+		- Executed once, after files are read
+		- Can appear anywhere in the script
+		- Can appear multiple times
+		- Can contain program code
+	- `pattern { commands; }`
+		- Patterns can be combined with `&&` `||` `!`
+		- Range of records can be specified using comma
+		- Executed each record pattern evalutes to true
+		- Script can have multiple such blocks
+	- `{ commands; }`
+		- Executed for all records
+		- Can have multiple such blocks
+
+* #### operators
+	- Assignment
+		- `=` `+=` `-=` `*=` `/=` `%=` `^=` `**=`
+	- Logical
+		- `||` `&&`
+	- Algebraic
+		- `+` `-` `*` `/` `%` `^` `**`
+	- Relational
+		- `>` `<=` `>` `>=` `!=` `==`
+
+| Operation  | Description  |
+|---|---|
+|	`expr ? a : b`	|	Conditional expression	|
+|	`a in array`	|	Array membership	|
+|	`a ~ /regex/`	|	Regular expression match	|
+|	`a !~ /regex/`	|	Negation of regular expression match	|
+|	`++`	|	Increment, both prefix and postfix	|
+|	`--`	|	decrement, both prefix and postfix	|
+|	`$`	|	Field reference	|
+|	` `	|	Blank is for concatenation	|
+
+* #### Functions and commands
+
