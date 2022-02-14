@@ -21,5 +21,9 @@ ___
   - Lecture 6.2 - [continue-example.sh](continue-example.sh)
   - Lecture 6.2 - [shift-example.sh](shift-example.sh)
   - Lecture 6.2 - [exec-example.sh](exec-example.sh)
+  - Lecture 6.3 - [eval-example.sh](eval-example.sh)
+  - Lecture 6.3 - [function-example.sh](function-example.sh)
+  - Lecture 6.3 - [getopts-example.sh](getopts-example.sh)
+  - Lecture 6.3 - [select-example.sh](select-example.sh)
 
 Note : To download these files to your local system right click on 'Raw' and then select 'Save link as'
