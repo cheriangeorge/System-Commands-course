@@ -25,5 +25,16 @@ ___
   - Lecture 6.3 - [function-example.sh](function-example.sh)
   - Lecture 6.3 - [getopts-example.sh](getopts-example.sh)
   - Lecture 6.3 - [select-example.sh](select-example.sh)
+  - Lecture 6.4 - [block-ex-1.awk](block-ex-1.awk)
+  - Lecture 6.4 - [block-ex-1.input](block-ex-1.input)
+  - Lecture 6.4 - [block-ex-2.awk](block-ex-2.awk)
+  - Lecture 6.4 - [block-ex-2.input](block-ex-2.input)
+  - Lecture 6.4 - [block-ex-3.awk](block-ex-3.awk)
+  - Lecture 6.4 - [block-ex-3.input](block-ex-3.input)
+  - Lecture 6.4 - [block-ex-4.awk](block-ex-4.awk)
+  - Lecture 6.4 - [block-ex-4.input](block-ex-4.input)
+  - Lecture 6.4 - [block-ex-5.awk](block-ex-5.awk)
+  - Lecture 6.4 - [block-ex-5.input](block-ex-5.input)
+
 
 Note : To download these files to your local system right click on 'Raw' and then select 'Save link as'
