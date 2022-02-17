@@ -298,16 +298,17 @@ L6.4
 
 * Introduction
 	- awk is a programming language, quick to code and fast in execution
-	- awk is an abbreviation of the names of three people who developed it: Aho, Weinberger & Kernighan
+	- awk is an abbreviation of the names of three people who developed it: **A**ho, **W**einberger & **K**ernighan
 	- It is a part of POSIX, IEEE 1003.1-2008
 	- Variants: nawk, gawk, mawk ...
-	- gawk contains features that extend POSIX
+	- gawk contains features that extend POSIX (normally seen on GNU Linux systems with a symbolic link from awk to gawk)
+	- Though awk is viewed as a scripting language it has enough mathematical functions to use for routine calculations. IT can do things that spreadsheets cannot do.
 
 * Execution model
-	- Input stream is a set of records
+	- Input stream is a set of records 
 	- Eg., using "\n" as record separator, lines are records
 	- Each record is a sequence of fields
-	- Eg., using " " as field separator, words are fields
+	- Eg., using " " as field separator, words are fields. Evan a regular expression can be used as an FS.
 	- Splitting of records to fields is done automatically
 	- Each code block executes on one record at a time, as matched by the pattern of that block
 
@@ -327,6 +328,15 @@ L6.4
 		}
 		```
 		
+* Examples
+	- [block-ex-1.awk](Example_Files/block-ex-1.awk)
+		- `./block-ex-1.awk block-ex-1.input`
+		- `cat block-ex-1.input | ./block-ex-1.awk`
+		- For each line Default block will be processed once. 
+		- You can have as many begin and end blocks wherever required in the awk script. BEGIN will be processed before the default block and and END will be processed after the default block.
+		- We don't need `;` at the end of every statement unless you need to write multiple statements on a single line.
+		- `$0` represents the line(record) which is currently being processed. 
+	
 * Built-in variables
 
 | Variable  | Description  |
@@ -349,16 +359,18 @@ L6.4
 |	`$0`	|	Entire input record	|
 |	`$n`	|	nth field in the current record	|
 
+
+
 * #### awk scripts
 	- ##### `pattern {procedure}`
-	- pattern
+	- pattern (optional. If not given the code block is called default block and it is applied to every line in the input stream.)
 		- **BEGIN**
 		- **END**
 		- general expression
 		- **regex**
 		- Relational Expression
 		- Pattern-matching expression
-	- procedure
+	- procedure (will be applied to all recors that match the pattern)
 		- Variable assignment
 		- Array assignment
 		- Input / output commands
@@ -407,6 +419,8 @@ L6.4
 |	`$`	|	Field reference	|
 |	` `	|	Blank is for concatenation	|
 
+- Adding 0 to a string makes it get interpreted as a number.
+
 * #### Functions and commands
 
 | Operation  | Commands  |
@@ -417,6 +431,16 @@ L6.4
 |	Input / Output	|	`close` `fflush` `getline` `next` `nextline` `print` `printf`	|
 |	Programming	|	`extension` `delete` `function` `system`	|
 |	bit-wise	|	`and` `compl` `lshift` `or` `rshift` `xor`	|
+
+* Example 
+	- [block-ex-2.awk](Example_Files/block-ex-2.awk)
+	- [block-ex-3.awk](Example_Files/block-ex-3.awk)
+		- Blocks get executed based on whether the line has `alpha`,`alnum` or `digits`
+	- [block-ex-4.awk](Example_Files/block-ex-4.awk)
+		- Matching only the first field in the record with a pattern
+	- [block-ex-5.awk](Example_Files/block-ex-5.awk)
+		- Field Separator as regular expression
+		- Number of fields as condition 
 
 * #### arrays
 	- Associative arrays
