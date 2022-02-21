@@ -544,3 +544,18 @@ L6.4
 	- Time the process for 2 million records `time ./rsheet-create.awk emptyfile > rsheet-data.txt`
 	- [rsheet-process.awk](Example_Files/rsheet-process.awk)
 	- `time ./rsheet-process.awk rsheet-data.txt > rsheet-pdata.txt`
+	- Analysing the server logs of [https://semantic.iitm.ac.in/](https://semantic.iitm.ac.in/)
+	- [access-full.log](Example-Files/access-full.log) (80MB)
+	- Making smaller files
+	- `head access-full.log > access-head.log` and `tail access-full.log > access-tail.log`
+	- To print ip addreses alone `awk BEGIN{FS=" "}{print $1} access-head.log`
+	- To print only the date and ip `awk BEGIN{FS=" "}{d=substr($4,2,11);print d, $1} access-head.log`
+	- The date from 5 days ago - `date --date="5 days ago" +%d/%m/%Y`
+	- Use the above date string to extract details from the Apache log book
+	- [apache-log-example-1.awk](Example_Files/apache-log-example-1.awk)
+	- `./apache-log-example-1.awk access-head.log`
+	- Investigate a suspicious ip address using `dig`
+	- `dig -x 136.123.209.54`
+	- `dig +noall +answer -x 34.234.167.93` for a one line output
+	- [apache-log-example-2.awk](Example_Files/apache-log-example-2.awk)
+	- `time ./apache-log-example-2.awk access-full.log > nstats.txt`
