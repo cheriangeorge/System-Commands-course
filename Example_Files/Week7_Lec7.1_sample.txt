@@ -1,0 +1,15 @@
+L1 linux is a free, opensource, secure and reliable os 
+L2 text editing: vim or emacs in place of notepad 
+L3 text processing: latex, libreoffice writer in place of microsoft word 
+L4 spreadsheet: libreoffice calc in place of microsoft excel 
+L5 slides: libreoffice impress in place of microsoft powerpoint 
+L6 image processing: gimp, inkspace, imagej in place of adobe photoshop 
+L7 browsing: mozilla firefox in place of microsoft edge 
+L8 email: mozilla thunderbird in place of microsoft Outlook 
+L9 symbolic math: sympy, sagemath in place of maple, mathematica 
+L10 array math: octave, numpy, scilab in place of matlab 
+L11 literature: jabref, calibre in place of mendeley 
+L12 video editing: kdenlive in place of camtasia 
+L13 screen recording: obs in place of camtasia 
+L14 fetch files: wget, curl 
+L15 security: ufw, netstat, nmap
