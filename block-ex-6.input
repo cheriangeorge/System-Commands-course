@@ -1,0 +1,11 @@
+This file contains comments and numbers
+Lines containing roll number and the fee paid need to be picked up
+mm22b901  21000
+Sum of the total fee paid needs to be printed at the end
+Also a list of students, who paid how much
+mm22b902 21000
+Input text may contain some commends in between
+mm22b906      21800
+mm22b903 21500 paid through DD
+mm22b905   22000
+updated as on Jan 26, 2022 by Phani
