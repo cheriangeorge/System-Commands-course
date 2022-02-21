@@ -441,6 +441,8 @@ L6.4
 	- [block-ex-5.awk](Example_Files/block-ex-5.awk)
 		- Field Separator as regular expression
 		- Number of fields as condition 
+___
+L6.4
 
 * #### arrays
 	- Associative arrays
@@ -508,7 +510,10 @@ L6.4
 		print b
 	}
 	```
-	
+* Example 
+	- [func-example.awk](Example_Files/func-example.awk)
+	- [func-lib.awk](Example_Files/func-lib.awk)
+
 * #### Pretty printing
 	- `printf "format", a, b, c`
 		- format - `%[modifier]control-letter`
