@@ -537,3 +537,10 @@ L6.4
 	- Including awk inside shell script
 	- heredoc feature
 	- Use with other shell scripts on command line using pipe
+* Examples 
+	- Spreadsheet handling efficiency demo
+	- [rsheet-create.awk](Example_Files/rsheet-create.awk)
+	- `echo " " | ./rsheet-create.awk`
+	- Time the process for 2 million records `time ./rsheet-create.awk emptyfile > rsheet-data.txt`
+	- [rsheet-process.awk](Example_Files/rsheet-process.awk)
+	- `time ./rsheet-process.awk rsheet-data.txt > rsheet-pdata.txt`
