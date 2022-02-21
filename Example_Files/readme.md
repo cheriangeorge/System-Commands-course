@@ -35,6 +35,19 @@ ___
   - Lecture 6.4 - [block-ex-4.input](block-ex-4.input)
   - Lecture 6.4 - [block-ex-5.awk](block-ex-5.awk)
   - Lecture 6.4 - [block-ex-5.input](block-ex-5.input)
+  - Lecture 6.5 - [rsheet-process.awk](rsheet-process.awk)
+	- Lecture 6.5 - [rsheet-create.awk](rsheet-create.awk)
+	- Lecture 6.5 - [func-lib.awk](func-lib.awk)
+	- Lecture 6.5 - [func-example.awk](func-example.awk)
+	- Lecture 6.5 - [block-ex-6.input](block-ex-6.input)
+	- Lecture 6.5 - [block-ex-6.awk](block-ex-6.awk)
+	- Lecture 6.5 - [apache-stats.txt](apache-stats.txt)
+	- Lecture 6.5 - [access-head.log](access-head.log)
+	- Lecture 6.5 - [access-tail.log](access-tail.log)
+	- Lecture 6.5 - [apache-log-example-1.awk](apache-log-example-1.awk)
+	- Lecture 6.5 - [apache-log-example-1a.awk](apache-log-example-1a.awk)
+	- Lecture 6.5 - [apache-log-example-2.awk](apache-log-example-2.awk)
+	- Lecture 6.5 - [apache-log-example-3.awk](apache-log-example-3.awk)
 
 
 Note : To download these files to your local system right click on 'Raw' and then select 'Save link as'
