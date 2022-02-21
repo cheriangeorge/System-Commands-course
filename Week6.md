@@ -481,6 +481,8 @@ L6.4
 		print a
 	} while (a<n)
 	```
+* Example 
+	- [block-ex-6.awk](Example_Files/block-ex-6.awk)
 * #### Functions
 	- `cat infile |awk -f mylib -f myscript.awk`
 	- `mylib`
