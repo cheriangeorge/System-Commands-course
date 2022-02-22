@@ -61,7 +61,8 @@ sequence for matching **address pattern** for **actions** specified with the
 		- `5,/regexp/`
 	
 * actions
-
+|   |   |
+|---|---|
 |	`p`	|	Print the pattern space	|
 |	`d`	|	Delete the pattern space	|
 |	`s`	|	Substitute using regex match `s/pattern/replacement/g`	|
@@ -73,6 +74,8 @@ sequence for matching **address pattern** for **actions** specified with the
 
 * programming
 
+|   |   |
+|---|---|
 |	`b label`	|	Branch unconditionally to label	|
 |	`:label`	|	Specify location of label for branch command	|
 |	`N`	|	Add a new line to the pattern space and append next line of input into it.	|
@@ -143,7 +146,7 @@ $a ------footer--------
 ```sed
 /[[:alpha:]]{2}[[:digit:]]{2}[[:alpha:]][[:digit:]]+/!d
 s/[ ]+/ /g
-s/ ([[:difit:]]+).*/ \1/g
+s/ ([[:digit:]]+).*/ \1/g
 ```
   - For the input file block-ex-6.input - File containing roll number and fees paid
   - First line deletes all lines that dont contain roll number
