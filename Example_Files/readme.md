@@ -48,6 +48,7 @@ ___
   - Lecture 6.5 - [apache-log-example-1a.awk](apache-log-example-1a.awk)
   - Lecture 6.5 - [apache-log-example-2.awk](apache-log-example-2.awk)
   - Lecture 6.5 - [apache-log-example-3.awk](apache-log-example-3.awk)
-
+* Week 7
+  - Lecture 7.1 = [sample.txt](sample.txt)
 
 Note : To download these files to your local system right click on 'Raw' and then select 'Save link as'
