@@ -61,7 +61,8 @@ sequence for matching **address pattern** for **actions** specified with the
 		- `5,/regexp/`
 	
 * actions
-|   |   |
+
+| command  | Description  |
 |---|---|
 |	`p`	|	Print the pattern space	|
 |	`d`	|	Delete the pattern space	|
@@ -74,7 +75,7 @@ sequence for matching **address pattern** for **actions** specified with the
 
 * programming
 
-|   |   |
+|  command | Description  |
 |---|---|
 |	`b label`	|	Branch unconditionally to label	|
 |	`:label`	|	Specify location of label for branch command	|
