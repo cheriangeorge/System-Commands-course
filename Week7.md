@@ -189,5 +189,105 @@ L7.2
 		- GIT - Distributed version control system
 			- Even if something happens to the master server disappears nothing significant is lost because every collaborator has a copy of everything. 
 			- GIT system doesn't really require a server
+
+* git
+	- remote - server with which we synchronize
+	- protocol for connection - git protocol - protocol by which we exchange information with remote and do version control.
+	- options of using git 
+		- locally run git server
+		- campus git server
+		- gitlab 
+		- github.com
+	- Two factor authentication for github
+		- app -> otp -> enter
+		- app -> ask -> swipe
+		- SMS -> OTP -> enter
+		- customised for each repository/activity
+		- personal access token
+* Activities
+	- register on github.com
+	- enable 2 factor authentication (Microsoft Authenticator App)
+	- Create a repo
+	- practice how to pull,push,git actions.
+	- Developer Settings >> Personal Access Token
+	- Create repository
+	- `git clone url-of-github-rep.git`
+		- append `.git` to url
+		- folder will be created automatically
+	- edit README.md using `vi README.md`
+	- `git init` in the directory so that git understands that it is the same directory
+		- creates a `.git` folder with all the paraphernelia that git requires
+		- `ctrl`+`z` puts the program that was running as a background job. `kill %` kills the background job
+	- `git remote add master url-of-github-rep` 
+		- it understands that there is a remote location that you hae configured
+	- `git config --global user.name "your_username_on_github"`
+	- `git config --global user.email "your_github_registered_email"`
+	- `git status` will chec what is happening
+	- `git add README.md`
+	- `git commit -m "Message which is describes what you have done"`
+	- Use the personal access token created earlier
+	- `vi ../pat` to store the token one level above the folder.
+	- `git push` enter username and personal access token
+	
+___
+L7.3
+
+### Github Brief Introduction
+
+* Create account on Github
+	- Configure 2 factor authentication and download recovery keys
+	- Install Microsoft Authenticator App on your mobile
+	- Login to github.com using TFA as a habit
+
+* Creating your own repository
+	- Create private repository
+	- Get a personal access token to use this
+	- Clone the repository on your computer `git clone url_of_the_repo`
+	- Configure the folder for git using `git init`
+	- Tell git about yourself : `git config`
+		- `git config --global user.name "your_username_on_github"`
+		- `git config --global user.email "your_github_registered_email"`
+	- Configure the remote `git remote add master url_of_the_repo`
+	- Change some files if you wish
+	- Run the `git status` command to understand what is going on.
+	- Stage them to be ready to send to remote using `git add modified_filename`
+	- `git add .` will push everything to the server
+	- Commit the change using `git commit -m "message"`
+	- Type `git status` again
+	- Push the changes using `git push`
+
+
+* Working with branches
+	- Create a new branch for a repository you are already working on
+		-`git branch`
+		-`git branch "Panda"`
+	- Check out the branch
+		- `git checkout`
+		- `git checkout Panda`
+		- `git status` shows that you are on the Panda branch
+	- Make some changes to some files
+	- All changes are now to the branch
+		- `git add README.md`
+		- `git commit -m "This is from my PC"`
+		- `git push --set-upstream origin Panda`
+	- Merge the branch with the master/main
+		- `git checkout main`
+		- `git merge Panda`
+	- On the website 'Compare and Pull Request'. Then 'Create Pull Request'. Then 'Merge Pull Request'
+	- Remote checks if there is any confilct. Creating and merging branches is part of the coding cycle.
+
+* Contributing to others' repositories
+	- Fork their repository
+	- create your branch
+	- make some changes to your branch and push those to the server
+	- on the remote server, compare and create a pull request
+
+* Allowing contributors to chip in
+	- Look at pull requests and approve them
+	- Resolve and conflicts in some files
+
+
+
+
 			
 		
