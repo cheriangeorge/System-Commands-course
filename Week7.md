@@ -1,5 +1,91 @@
 
 ### sed
+* Introduction
+	- It is a programming language for processing text streams
+	- sed is an abbreviation for **s**tream **ed**itor
+	- It is a part of POSIX
+	- sed precedes awk
+	- use sed to pre-process input for further processing
+	- sed is a meant for text processing, fast in execution
+	- sed is available everywhere !
+
+* Execution model
+	- Input stream is a set of lines
+	- Each line is a sequence of characters
+	- Two data buffers are maintained: active **pattern** space and auxiliary
+**hold** space
+	- For each line of input, an **execution cycle** is performed loading the line
+into the pattern space
+	- During each cycle, all the statements in the script are executed in the
+sequence for matching **address pattern** for **actions** specified with the
+**options** provided
+
+* usage
+	- Single line at the command line
+	- `sed -e 's/hello/world/g' input.txt`
+	- Script interpreted by sed
+	- `sed -f ./myscript.sed input.txt`
+	- `myscript.sed`
+	```sed
+	#!/usr/bin/sed -f
+	2,8s/hello/world/g
+	```
+	
+* sed statements
+	- `:label` `address pattern` `action` `options` ;
+		- `address pattern`
+			- `address`
+			- `address, range`
+			- negation `!`
+		- `action`
+			- Single Character action. Same as "ed" or "ex"
+		- `options`
+			- Depends on the `action`
+
+* Grouping commands
+	- `{ cmd; cmd; }`
+	
+* address
+	- Selecting by Numbers
+		- `5`
+		- `$`
+		- `%`
+		- `1~3`
+	- Selecting by matching
+		- `/regexp/`
+	- Range Address
+		- `/regexp1/,/regexp2/`
+		- `/regexp/, +4`
+		- `/regexp/, ~2`
+		- `5,15`
+		- `5,/regexp/`
+	
+* actions
+
+|	`p`	|	Print the pattern space	|
+|	`d`	|	Delete the pattern space	|
+|	`s`	|	Substitute using regex match `s/pattern/replacement/g`	|
+|	`=`	|	Print current input line number, \n	|
+|	`#`	|	comment	|
+|	`i`	|	Insert above current line	|
+|	`a`	|	Append below current line	|
+|	`c`	|	Change current line	|
+
+* programming
+
+|	`b label`	|	Branch unconditionally to label	|
+|	`:label`	|	Specify location of label for branch command	|
+|	`N`	|	Add a new line to the pattern space and append next line of input into it.	|
+|	`q`	|	Exit sed without processing any more commands or input lines	|
+|	`t label`	|	Branch to label only if there was a successful substitution was made	|
+|	`T label`	|	Branch to label only if there was no successful substitution was made	|
+|	`w filename`	|	Write pattern space to filename	|
+|	`x`	|	Exchange the contents of hold and pattern spaces	|
+
+* bash + sed
+	- Including sed inside shell script
+	- heredoc feature
+	- Use with other shell scripts on command line using pipe
 
 * Working with `sed`
   - `sed -e "" edit.txt`
