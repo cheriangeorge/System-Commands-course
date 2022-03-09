@@ -1,5 +1,10 @@
 ### Week 5 Notes
 
+#### Warning : Week 5 Notes are not complete. 
+The last 2 videos are not included in these notes.
+* Video 5.4 - Overview of Shell Scripts
+* Video 5.5 - Bash Scripts - Part 01
+
 #### Command Line Editors
 * Working with text files in the terminal
 * Editors
