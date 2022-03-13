@@ -105,7 +105,7 @@ sequence for matching **address pattern** for **actions** specified with the
   - `sed -n -e '5,8{=;p}' sample.txt` prints line numbers for the line 5 to 8 alone.
   - `sed -n -e '1~2p' sample.txt` prints lines 1,3,5,7 ... Number coming after `~` specifies step size.
   - `sed -n -e '1~2!p' sample.txt` prints the remaining lines due to the negation specified by `!`
-  - `sed -n -e '/microsoft/p' sample.txt` Supplying a phrase and an action. The hrase is microsoft and the action is to print every line containing the phrase.
+  - `sed -n -e '/microsoft/p' sample.txt` Supplying a phrase and an action. The phrase is microsoft and the action is to print every line containing the phrase.
   - `sed -n -e '/in place of/!p' sample.txt`  prints the lines that do not contain the phrase "in place of"
   - `sed -n -e '/adobe/,+2p' sample.txt` prints the line containing "adobe" and two more lines that come immediately after that.
   - `sed -n -e '5d' sample.txt` deletes the 5th line and prints the rest
