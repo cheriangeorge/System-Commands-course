@@ -76,5 +76,5 @@ rm -f $(TMP_FILES)
 * `pciutils`
 * `procps`
 * `sysstat`
-* `upower
+* `upower`
 * `util-linux`
