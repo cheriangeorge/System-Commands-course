@@ -122,3 +122,134 @@ rm -f $(TMP_FILES)
   - Override `__str__` method to have dynamic prompt
 
 ---
+
+#### Network & ssh
+###### Accessing remote machines on command line
+* IPv4 address range
+  - Localhost
+    - `127.0.0.0/8`
+  - Private network
+    - `Class A : 10.0.0.0/8` - 16,777,216
+    - `Class B : 172.16.0.0/12` - 1,048,,576
+    - `Class C : 192.168.0.0/16` - 65,536
+  - Public network
+
+* Ways to gain remote access
+  - VPN access
+  - ssh tunneling
+  - Remote desktop : x2go, rdp, pcoip,
+  - Desktop over browser: Apache Guacomole
+  - Commercial, over internet : Teamviewer, AnyDesk,Zoho assist, ...
+
+* Some important ports
+| Port  | Service  | Description  |
+|---|---|---|
+|	`21`	|	`ftp`	|	File transfer	|
+|	`22`	|	`ssh`	|	Secure Shell	|
+|	`25`	|	`smtp`	|	Simple Mail Transfer Protocol	|
+|	`80`	|	`http`	|	Hypertext Tranfer Protocol	|
+|	`443`	|	`https`	|	Secure Hypertext Tranfer Protocol	|
+|	`631`	|	`cups`	|	Common Unix Printing System	|
+|	`3306 `	|	`mysql`	|	MySQL database	|
+
+* Firewall
+  - Ports open on my machine
+  - Ports needed to be accessed on remote machine
+  - Network routing over the port
+  - Firewall controls at each hop
+
+* Protecting a server
+  - Server with a public service > Web Application Filter > Network Firewall > Anonymous users
+
+* SELinux
+  - Security Enhanced Linux mode available on Ubuntu too, apart from server grade flavors like CentOS, Fedora, RHEL, SuSE Linux etc.,
+  - Additional layer of access control on files to services
+  - Role Based Access Control
+  - Process sandboxing, least privilege access for subjects
+  - Check using `ls -lZ` and `ps -eZ`
+  - RBAC items: user `(unconfined_u)`, role `(object_r)`, type `(user_home_t)`, level `(s0)`
+  - Modes: `disabled`, `enforcing`, `permissive`
+  - Tools: `semanage`, `restorecon`
+  - SELinux is recommended for all publicly visible servers
+
+* Network tools
+
+| Tool  | Description  |
+|---|---|
+|	`ping`	|	To see if the remote machine is up	|
+|	`traceroute`	|	Diagnostics the hop timings to the remote machine	|
+|	`nslookup`	|	Ask for conversion of IP address to name	|
+|	`dig`	|	DNS lookup utility	|
+|	`netstat`	|	Print network connections	|
+|	`mxtoolbox.com`	|	For help with accessibility from public network	|
+|	`whois lookup`	|	Who owns which domain name	|
+|	`nmap`	|	(careful !) Network port scanner	|
+|	`wireshark`	|	(careful !) Network protocol analyzer	|
+
+* High Performance Computing
+  - Look at www.top500.org for statistics
+  - Accessing a remote HPC machine is usually over SSH
+  - Long duration jobs are submitted to a job scheduler for execution
+  - Raw data if large needs to be processed remotely before being transferred to your machine (network charges? bandwidth?)
+  - Comfort with command line is a must
+
+---
+
+#### Automating scripts
+###### Scheduled, recurring, automatic execution of scripts
+* `cron`
+  - Service to run scripts automatically at scheduled times
+  - Tools: `at`, `crontab`, `anacron`, `logrotate`
+  - Script locations:
+    - `/etc/crontab`  
+    - `/etc/cron.d`
+    - `/etc/cron.hourly`
+    - `/etc/cron.daily`
+    - `/etc/cron.weekly`
+    - `/etc/cron.monthly`
+* Job definition
+  - `5 2 * * 1-5 root cd /home/scripts/backup && ./mkbackup.sh`
+    - `5` minute (0-59)
+    - `2` hour (0-23)
+    - `*` day of the month (1-31)
+    - `*` month (0-12) or jan, feb, ...
+    - `1-5` day of week (0-6) or sun,mon, ...
+    - `root` user-name
+    - `cd /home/scripts/backup` command
+  - The above command runs mkbackup.sh as root every working day at 02:05 AM
+* Startup scripts
+  - Startup scripts: `/etc/init/`, `/etc/init.d/`
+  - Runlevel scripts:
+
+| Level  | Location  | Description  |
+|---|---|---|
+|	`0`	|	`/etc/rc0.d/`	|	Shutdown and power off	|
+|	`1`	|	`/etc/rc1.d/`	|	Single user mode	|
+|	`2`	|	`/etc/rc2.d/`	|	Non GUI multi-user mode w/o networking	|
+|	`3`	|	`/etc/rc3.d/`	|	Non GUI multi-user mode with networking	|
+|	`4`	|	`/etc/rc4.d/`	|	Non GUI multi-user mode for special purposes	|
+|	`5`	|	`/etc/rc5.d/`	|	GUI multi-user mode with networking	|
+|	`6`	|	`/etc/rc6.d/`	|	Shutdown and reboot	|
+
+---
+
+#### Managing Storage
+###### LVM & RAID
+
+* LVM
+  - Logical Volume Management
+  - Pooling multiple storage devices as a single logical volume
+  - `lvm2 tools` : create and manage virtual block devices from physical devices
+* RAID
+  - Redundant Arrays of Independent Disks
+  - Distributing data over multiple discs for redundancy / speed / increased capacity
+  - Raid Controller : software or hardware
+* RAID modes
+  - usable capacity < actual capacity
+
+| RAID Mode  | Min drives  | Description  | Comments  |
+|---|---|---|---|
+|	RAID 0	|	2	|	Striping	|	Speed up	|
+|	RAID 1	|	2	|	Mirroring	|	Read is n times faster, n-1 drive failures tolerated	|
+|	RAID 5	|	3	|	Block-level striping with distributed parity	|	1 drive failure tolerated, Read is n times faster, write is n-1 times faster	|
+|	RAID 6	|	4	|	Block-level striping with dual distributed parity	|	2 drive failures tolerated, read is n times faster, write is n-2 times faster	|
