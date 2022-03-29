@@ -19,3 +19,34 @@
 |	`-regex`	|	Regular expression for pattern of filenames. Combine with -regextype posix-basic, posix-egrep etc.,	|
 |	`-exec`	|	Command to run using { } as place holder for filename	|
 |	`-print`	|	Print the full path name of matching files	|
+
+##### file packaging
+
+* Deep file hierarchies
+* Large number of tiny files
+* `tar` : collect a file hierarchy into a single file
+* `gzip` : compress a file
+* Applications: backup, file sharing, reduce disc
+utilization
+
+##### Possibilities
+
+* `tar`, `zip`
+* compress (ncompress), gzip (ncompress), bzip2 (bzip2), xz (xz-utils), 7z (p7zip-full)
+* Tarballs like bundle.tgz for package + compress
+* Time & memory required to shrink / expand versus size ratio
+* Portability
+* Unique names using timestamp, process ID etc., for backup tarballs
+
+##### make
+
+* `make -f make.file`
+```
+# comments
+TMP_FILES = *.o *.aux
+.PHONY : clean
+target : prerequisites
+recipe $(OPTION_NAME)
+clean:
+rm -f $(TMP_FILES)
+```
