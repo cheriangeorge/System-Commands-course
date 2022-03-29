@@ -50,3 +50,31 @@ recipe $(OPTION_NAME)
 clean:
 rm -f $(TMP_FILES)
 ```
+---
+#### Knowing your hardware
+
+###### Hardware items
+* CPU
+* Storage & Partitions
+* Graphics Card
+* Memory Modules
+* Battery & status
+* Network devices & configuration
+
+###### Packages to install
+
+* `clinfo`
+* `coreutils`
+* `dmidecode`
+* `fdisk`
+* `hardinfo`
+* `hdparm`
+* `hwinfo`
+* `lshw`
+* `memtester`
+* `net-tools`
+* `pciutils`
+* `procps`
+* `sysstat`
+* `upower
+* `util-linux`
