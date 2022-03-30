@@ -141,9 +141,24 @@ Demo
     - `rm -rf logfiles` to remove the original logfiles directory
     - `uncompress logfiles.tar.Z` unzips the tar
     - `tar -xvf logfiles.tar` gives back the directory
- - Make
-    - 
-    - 
+  - Make
+    - `make.file` is given below
+      
+      ```shell
+      BACKUPDIR=/home/username/backup
+      DATESTAMP:=$(shell date+"%Y-%m-%d %G.%M")
+      TARBALL=backup_$(DATESTAMP).tar
+      backup: file1 file2
+              @echo "Backing up file1 file2 to $(DATESTAMP)"
+              tar -cvf $(TARBALL) file1 file2
+              @ls -l $(TARBALL)
+              mv $(TARBALL) $(BACKUPDIR)
+       ```
+     - The `:` infront of `=` in the `DATESTAMP` line indicates one-time substitution.
+     - `make -f make.file backup`
+     - The action is performed only if one of the dependencies has changed. It will get executed again only if file1 or file 2 has changed.
+     - ANy maintenence activity can be taken up as a make file command.
+
 ##### file packaging
 
 * Deep file hierarchies
