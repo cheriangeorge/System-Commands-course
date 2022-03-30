@@ -50,16 +50,16 @@
 * Context for prompt strings
   - `bash`,`dash`, `zsh`, `ksh`, `csh`
   - `python`
-  - `octave`
-  - `gnuplot`
-  - `sage`
-
+  - `octave` - Mathlab compatible numerical package
+  - `gnuplot` - Plotting tool
+  - `sage` - symbolic cumputing package. Perhaps better than Mathematica
+ 
 * bash prompts
   - PS1 : primary prompt string : `$`
   - PS2 : secondary prompt for multi-line input : `>`
   - PS3 : prompt string in select loops : `#?`
   - PS4 : prompt srting for execution trace : `+`
-
+Explanation: There are 4 bash prompts that are configured. What we see is normally the primary prompt when we open the shell. PS2 is shown when a command is incomplete. PS3 is shown when we run a bash script in a select loop. PS4 is shown when every command that is executed is displayed on the screen - when we use the option `set -x`
 * Escape sequences
 
 | -  | Description  |
@@ -79,13 +79,25 @@
 |	`\T`	|	Current time in 12-hour as hh:mm:ss	|
 |	`\\`	|	A literal \ character	|
 
-`\u@\h:\w\$`
+`\u@\h:\w\$` - This is the default value of PS1. Username @ machine name : current dir $ if user is not superuser
+
+To change what is displayed in the prompt string.
 
 * Python command line
   - ps1 and ps2 are defined in the module sys
   - Change `sys.ps1` and `sys.ps2` if needed
   - Override `__str__` method to have dynamic prompt
+`>>>` Default python command prompt
 
+Demo
+- `echo $PS1` - gives `\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$`
+- It can be changed `PS1="\u@\h:\w\$ "` . The color will be lost from above prompt string.
+- If you do `source .bashrc` you get back the prompt after messing up the prompt string.
+- `less .bashrc` to see where it is defined.
+- `echo $PS3` doesn't display anything.
+- `select x in alpha beta gamma; do echo $x; done` displays PS3
+- In octave `x=[1:1:100]` creates array
+- In SageMath `plot(sin(x),x,0,2*pi)`
 ---
 
 #### Important Utilities
@@ -96,7 +108,6 @@
 
 ##### find
 * `find [pathnames] [conditions]`
-
 
 | Condition  | Description  |
 |---|---|
