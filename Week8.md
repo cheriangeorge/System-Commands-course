@@ -127,7 +127,8 @@ Demo
 * `gzip` : compress a file
 * Applications: backup, file sharing, reduce disc
 utilization
-
+Explanations:
+- Sometimes when there are several small files in a hierarchy structure, the files may occupy the minimum block size so there is a wastage of space. In such situations doing a `tar` will save space.
 ##### Possibilities
 
 * `tar`, `zip`
