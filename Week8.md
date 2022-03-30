@@ -137,6 +137,10 @@ Explanations:
 * Time & memory required to shrink / expand versus size ratio
 * Portability
 * Unique names using timestamp, process ID etc., for backup tarballs
+Explanation :
+- Plain text or ASCII files can be compressed to a very good ratio (almost 1:10) if the file contains repeting patterns.
+- For more efficiency, first zip and then make a tar. Zipping the files while adding it to tar - .tgz file format combines tar and gzip together.
+- The deciscion on which method to use is taken based on time required, space occupied etc..
 
 ##### make
 
@@ -304,12 +308,13 @@ Example of job definition:
 |	RAID 6	|	4	|	Block-level striping with dual distributed parity	|	2 drive failures tolerated, read is n times faster, write is n-2 times faster	|
 
 * Explanation
-  - RAID 0 - You are using 2 disks as 1. Half of one file is stored on 2 disks. Doubles speed of access of a file. Write Speed is 2x and Read Speed is 2x for 2 disks.
+  - RAID 0 - You are using 2 disks as 1. Half of one file is stored on 2 disks. Doubles speed of access of a file. Write Speed is 2x and Read Speed is 2x for 2 disks. If there are n disks in RAID 0 equivalent storage is size of minimum disk * n.
   - RAID 1 - Any piece of the file is written to both the disks. Reading is 2x but writing is n-1. People tend to use RAID 1 for OS alone.
-  - RAID 5 - When you have more than 3 disks. Data is written to more than ne disk. If one fails nothing is lost.
+  - RAID 5 - When you have more than 3 disks. Data is written to more than one disk. If one fails nothing is lost.
   - RAID 6 - Parity over 2 disks. If 2 disks fail you still have all your data.
   - Most of the hardware supprts hot-swap. 
   - Useable capacity is less than the actual capacity
   - For storage people use RAID 5 or RAID 6.
 * Demo
   - `df -h` to check system storage
+  - WHich RAID configuration to use to improve read performance and sustain at least one disk failure without losing data ? RAID 4, RAID 6.
