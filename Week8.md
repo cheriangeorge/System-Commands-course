@@ -19,7 +19,9 @@
 * `hardinfo`
 * `hdparm`
 * `hwinfo`
+  - Will probe hardware and show output on the screen. Information about PCI, partitions, keyboard, tablet, earphones etc..
 * `lshw`
+  - List hardware. Output is in various sections. You can choose a particular section eg : `lshw -c display` or `lshw -c processor` or `lshw -c memory`
 * `memtester`
 * `net-tools`
 * `pciutils`
@@ -27,6 +29,20 @@
 * `sysstat`
 * `upower`
 * `util-linux`
+
+* Demo
+  - `cat /proc/cpuinfo` gives information about the CPU.
+  - `cat /proc/partitions` gives partition information. The loop partitions are meant for snap packages
+  - `lsblk -o NAME,SIZE` gives information about the number of block devices that are available.
+  - `lspci` gives the list of PCI devices connected to the computer using the PCI bus.
+  - `free` gives details about the amount of memory used. It is a practice to have double the size of the memory as swap
+  - `sudo dmidecode --type memory` gives information about the memory and modules.
+  - `hardinfo` is a GUI utility
+  - `clinfo` gives information about the graphics card. 
+  - `upower -e` to know about the battery status. This will give a list.Choose the one that says battery and execute `upower -i /org/freedesktop/UPower/devices/battery_BAT0` for example.
+  - `sudo hdparm -Tt /dev/sda` runs diagnostics on the ssd or hdd. Timing cached reads and buffered disk reads.
+  - `iostat -dx /dev/sdb` gives information about speeds of various disks.
+  - `ifconfig` is a network utility that gives information about ethernet / loopback / wifi adapter.
 
 ---
 #### Prompt strings
