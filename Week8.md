@@ -119,6 +119,31 @@ Demo
 |	`-exec`	|	Command to run using { } as place holder for filename	|
 |	`-print`	|	Print the full path name of matching files	|
 
+* Examples
+  - Find
+    - `find $HOME -print | wc -l` will print the number of files in the home directory
+    - `find $HOME -mtime -2 -print` prints files modified in the last 2 days
+    - `find . -mtime -2 -print` prints files modified in the last 2 says in the current working directory
+    - `find /usr -type d -name 'man*' -print` directories begining with the word man in /usr directory
+    - `find . -size +10M -print` finds files that are more than 10 MB
+    - `find . -size +10M -print -exec ls -lsh {} \;` every file that is greater than 10 MB will be inserted in the curly braces. The output will be file name followed by long listing.
+    - `find . -name '*.jpg' -exec -ls -sh {} \;` lists all the jpeg files and their size
+  - Compression
+    - `cp -r /var/log logfiles` To illustrate compression capability get a copy of the log folders
+    - `du -sh` shows the size it occupies
+    - `ls -lR` displays recursively
+    - `tar -cvf logfiles.tar logfiles/` bundles all the files in the directory as logfiles.tar
+    - Compress it using `gzip logfiles.tar` 
+    - `bzip2 logfiles.tar` shrinks it better but takes some more time
+    - `bzip2 -d logfiles.tar.bz2` unzipping the files
+    - `compress logfiles.tar` is very fast but compression is not much
+    - For a directory that has lot of subdirectories and lot of small files, it is a good idea to package it as a tar file
+    - `rm -rf logfiles` to remove the original logfiles directory
+    - `uncompress logfiles.tar.Z` unzips the tar
+    - `tar -xvf logfiles.tar` gives back the directory
+ - Make
+    - 
+    - 
 ##### file packaging
 
 * Deep file hierarchies
