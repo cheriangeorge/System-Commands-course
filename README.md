@@ -8,6 +8,7 @@
 * [Week 5](Week5.md) - Lectures 5.4 and 5.5 not yet updated.
 * [Week 6](Week6.md)
 * [Week 7](Week7.md)
+* [Week 8](Week8.md)
 
 #### Reference Books:
 * The Command Line - a complete introduction, by William Shotts. (ISBN: 9781593279523)
