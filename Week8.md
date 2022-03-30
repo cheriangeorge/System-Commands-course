@@ -207,6 +207,16 @@ rm -f $(TMP_FILES)
     - `/etc/cron.daily`
     - `/etc/cron.weekly`
     - `/etc/cron.monthly`
+
+Example of job definition:
+.---------------- minute (0 - 59)
+|  .------------- hour (0 - 23)
+|  |  .---------- day of month (1 - 31)
+|  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+|  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+|  |  |  |  |
+*  *  *  *  * user-name command to be executed
+
 * Job definition
   - `5 2 * * 1-5 root cd /home/scripts/backup && ./mkbackup.sh`
     - `5` minute (0-59)
@@ -217,6 +227,14 @@ rm -f $(TMP_FILES)
     - `root` user-name
     - `cd /home/scripts/backup` command
   - The above command runs mkbackup.sh as root every working day at 02:05 AM
+* Demonstration
+  - The first time crontab is used you have to select the default editor
+  - crontab is in `etc` directory
+  - `anacron` is run by the System administrator
+  - `cron.daily` is a folder in `etc` that displays daily tasks. Similarly `cron.hourly`,`cron.monthly`,`cron.weekly`
+  - By placing a script in any of these directories you can make it run at the specified schedule
+  - By running `crontab -e` you can execute a specific script at a time. Customize timely running of scripts.
+
 * Startup scripts
   - Startup scripts: `/etc/init/`, `/etc/init.d/`
   - Runlevel scripts:
