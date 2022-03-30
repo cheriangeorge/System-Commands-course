@@ -198,6 +198,7 @@ rm -f $(TMP_FILES)
 
 #### Network & ssh
 ###### Accessing remote machines on command line
+
 * IPv4 address range
   - Localhost
     - `127.0.0.0/8`
@@ -206,11 +207,19 @@ rm -f $(TMP_FILES)
     - `Class B : 172.16.0.0/12` - 1,048,,576
     - `Class C : 192.168.0.0/16` - 65,536
   - Public network
-
+* Explanations
+  - Interfaces between Private and Public network is a gateway
+  - Local host address is the way by which the system can refer to itself. 
+  - The number after the slash indicates how many IP addresses are possible.
+  - Class A : The three parts following 10 can be any number between 0 and 255. 2^24-2=16,777,216. This is useful for a large organisation
+  - You can create orivate networks within private networks upto 3 levels
 * Ways to gain remote access
   - VPN access
-  - ssh tunneling
+  - ssh tunneling 
+    - secure shell tunneling
   - Remote desktop : x2go, rdp, pcoip,
+    - rdp is popular among Windows machine
+    - pcoip with VMWare
   - Desktop over browser: Apache Guacomole
   - Commercial, over internet : Teamviewer, AnyDesk,Zoho assist, ...
 
@@ -237,10 +246,13 @@ rm -f $(TMP_FILES)
 * SELinux
   - Security Enhanced Linux mode available on Ubuntu too, apart from server grade flavors like CentOS, Fedora, RHEL, SuSE Linux etc.,
   - Additional layer of access control on files to services
+    - A layer beyond file permissions.
   - Role Based Access Control
   - Process sandboxing, least privilege access for subjects
+    - Every process will have restriction of reading the memory locations of other processes
   - Check using `ls -lZ` and `ps -eZ`
   - RBAC items: user `(unconfined_u)`, role `(object_r)`, type `(user_home_t)`, level `(s0)`
+    - Role Based Access Control
   - Modes: `disabled`, `enforcing`, `permissive`
   - Tools: `semanage`, `restorecon`
   - SELinux is recommended for all publicly visible servers
@@ -257,15 +269,22 @@ rm -f $(TMP_FILES)
 |	`mxtoolbox.com`	|	For help with accessibility from public network	|
 |	`whois lookup`	|	Who owns which domain name	|
 |	`nmap`	|	(careful !) Network port scanner	|
-|	`wireshark`	|	(careful !) Network protocol analyzer	|
+|	`wireshark`	|	(careful !) Network protocol analyzer. Sniff packets through the network for diagnostics.	|
 
 * High Performance Computing
   - Look at www.top500.org for statistics
+    - All 500 HPC machines are GNU Linux based.
   - Accessing a remote HPC machine is usually over SSH
   - Long duration jobs are submitted to a job scheduler for execution
   - Raw data if large needs to be processed remotely before being transferred to your machine (network charges? bandwidth?)
   - Comfort with command line is a must
-
+* Demo
+  - `ifconfig` shows a Class A IP range network within the campus
+  - `nslookup www.iitm.ac.in` shows it is connected to `waf6.iitm.ac.in` web application filter.
+  - `dig -x 142.250.206.164`
+  - `aqua.iitm.ac.in` HPC cluster is not visible from the internet.
+  - `qstats` is used to get job status
+  - `netstat` to display active connections.
 ---
 
 #### Automating scripts
