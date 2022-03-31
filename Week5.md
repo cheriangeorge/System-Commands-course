@@ -182,7 +182,7 @@ functions
     ```
   - commands are executed once for each item in the list
   - space is the field delimiters
-  - set IFS if required
+  - set IFS if required. If the field separator is different from space.
 
 * case statement
   - ```
