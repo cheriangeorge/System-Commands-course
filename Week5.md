@@ -296,3 +296,87 @@ functions
     ```
   - `commands` are executed eachtime `myfunc` is called
   - Definitions must be before the calls
+* Demo
+  - ```bash
+    #! /bin/bash
+    # s1.sh is my first script
+    echo I am invoked as 
+    echo $0
+    echo hello world
+    echo the PID of the process running this script is :
+    echo $$
+    ps --forest
+    export myvar=MYVAR
+    echo $myvar
+    ```
+  - Source it using `. s1.sh` or `source s1.sh`. This displays the same PID as the Bash terminal
+  - Executing this using `./s1.sh` displays an error as there is no executable permission.
+  - Provide executable permission using `chmod 755 s1.sh` and then run using `./s1.sh`
+  - Ths time the PID is different. 
+  - `ps --forest` shows all the processes that are running and the spawned processes.
+  - A variable set during execution in a subshell will not be available in the parent shell. If the script is sourced the variable will be available.
+  - `$0` displays which ever way the script has been invoked (absolute or relative path or just the name of the script)
+  - `./s1.sh -l arg2` will show `-l` as `$1` and `arg2` as `$2`
+  - ```bash
+    #! /bin/bash
+    # s1.sh modified script
+    echo Number of arguments
+    echo $#
+    echo First argument
+    echo $1
+    echo Second argument
+    echo $2
+    if test $1 = $2;
+    then
+      echo The arguments are the same
+    fi
+    ```
+  - Executing the above script using `./s1.sh hello hello` will say that the arguments are the same.
+  - ```bash
+    #! /bin/bash
+    echo use of for loop
+    for i in arg1 arg2 arg3
+    do
+      echo $i
+    done
+    ```
+  - The above script just prints arg1,arg2 and arg3 on 3 lines
+  - ```bash
+    #! /bin/bash
+    echo use of for loop
+    for i in file_{1..9}
+    do
+      echo $i
+    done
+    ```
+  - prints file_1,file_2 ... file_9 
+  - ```bash
+    #! /bin/bash
+    echo use of for loop
+    for i in file_{A..D}{1..9}
+    do
+      echo $i
+    done
+    ```
+  - prints 36 lines
+  - ```bash
+    #! /bin/bash
+    echo use of for loop
+    for i in $(ls /bin/z*)
+    do
+      echo $i
+    done
+    ```
+  - shows each file in bin directory starting with z
+  - `file znew | grep "shell script"` identifies whether the file passed (in bin) is a shell script
+  - ```bash
+    #! /bin/bash
+    echo Shell Scripts in bin directory
+    for i in $(ls /bin)
+    do
+      #echo /bin/$i
+      file /bin/$i | grep "shell script"
+    done
+    ```
+  - Prints the files which are shell scripts in the bin directory
+  
