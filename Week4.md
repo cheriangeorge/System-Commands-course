@@ -307,9 +307,9 @@ ___
 		- `cat chartype.txt | grep '[[:digit:]]$'`
 	- get lines that have a ctrl character
 		- `cat chartype.txt | grep '[[:ctrl:]]'`
-		- `cat chartype.txt | grep -v '[[:ctrl:]]'` will show the reverse including the empty lines
+		- `cat chartype.txt | grep -v '[[:cntrl:]]'` will show the reverse including the empty lines
 	- get lines that do not have a ctrl character
-		- `cat chartype.txt | grep '[^[:ctrl:]]'` (This does not work as intended)
+		- `cat chartype.txt | grep '[^[:cntrl:]]'` (This does not work as intended)
 	- get lines that have printable characters (exclude blank lines)
 		- `cat chartype.txt | grep '[[:print:]]'`
 	- get lines that have blank space characters (exclude blank lines)
