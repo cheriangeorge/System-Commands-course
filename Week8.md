@@ -379,3 +379,10 @@ Example of job definition:
 * Demo
   - `df -h` to check system storage
   - WHich RAID configuration to use to improve read performance and sustain at least one disk failure without losing data ? RAID 4, RAID 6.
+
+#### Images
+
+![RAID0](https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/RAID_0.svg/325px-RAID_0.svg.png)
+![RAID1](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/RAID_1.svg/325px-RAID_1.svg.png?20181205135217)
+![RAID5](https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/RAID_5.svg/325px-RAID_5.svg.png)
+![RAID6](https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/RAID_6.svg/325px-RAID_6.svg.png)
