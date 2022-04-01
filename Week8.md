@@ -300,6 +300,7 @@ rm -f $(TMP_FILES)
     - `/etc/cron.weekly`
     - `/etc/cron.monthly`
 
+```
 Example of job definition:
 .---------------- minute (0 - 59)
 |  .------------- hour (0 - 23)
@@ -308,6 +309,7 @@ Example of job definition:
 |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
 |  |  |  |  |
 *  *  *  *  * user-name command to be executed
+```
 
 * Job definition
   - `5 2 * * 1-5 root cd /home/scripts/backup && ./mkbackup.sh`
