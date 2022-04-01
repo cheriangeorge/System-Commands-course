@@ -224,6 +224,7 @@ rm -f $(TMP_FILES)
   - Commercial, over internet : Teamviewer, AnyDesk,Zoho assist, ...
 
 * Some important ports
+
 | Port  | Service  | Description  |
 |---|---|---|
 |	`21`	|	`ftp`	|	File transfer	|
