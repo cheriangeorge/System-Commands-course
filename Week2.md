@@ -164,7 +164,7 @@
   - `echo $USERNAME` and `echo "$USERNAME"` give the same result but `echo '$USERNAME'` is not interpreted to give the value of the shell variable.
   - ** Escaping to prevent interpretation **
   - `echo "username is $USERNAME and host name is \$HOSTNAME"`
-  - Escaping is usefule when you want to pass on the information to a child shell, without it being interpreted by the shell launching it.
+  - Escaping is useful when you want to pass on the information to a child shell, without it being interpreted by the shell launching it.
 * `echo $HOME` prints values of variables
   - By convention every shell variable starts with a Dollar
 * **Commonly used shell variables**
