@@ -108,7 +108,7 @@ sequence for matching **address pattern** for **actions** specified with the
   - `sed -n -e '/microsoft/p' sample.txt` Supplying a phrase and an action. The phrase is microsoft and the action is to print every line containing the phrase.
   - `sed -n -e '/in place of/!p' sample.txt`  prints the lines that do not contain the phrase "in place of"
   - `sed -n -e '/adobe/,+2p' sample.txt` prints the line containing "adobe" and two more lines that come immediately after that.
-  - `sed -n -e '5d' sample.txt` deletes the 5th line and prints the rest
+  - `sed -e '5d' sample.txt` deletes the 5th line and prints the rest
   - `sed -e '5,8d' sample.txt` deletes from the 5th to the 8th line and prints the rest   
   - `sed -e '1,$d' sample.txt` deletes from the 1st to the last line and prints nothing
   - `sed -e '/microsoft/d' sample.txt` deletes all the lines containing microsoft and prints the rest 
