@@ -1,5 +1,25 @@
 ## Week 1 Notes 
 
+### wsl: Windows System for Linux
+* If you have Windows 11, It is recommended to use `wsl` instead of other options.
+* Enable Virtualisation in the BIOS if not enabled.
+* User `wsl` command in powershell to install Linux and restart the PC
+  - `wsl -l -o` : see available Linux distros
+  - `wsl --install -d <DistroNames>` : install your distro
+  - `wsl --install` : install latest Ubunto LTS by default
+* Run <DistroName> through start menu and Set username and password
+* Now you can use `bash` or `wsl` command from anywhere to run your installed Linux distro.
+### Linux Virtual Machine 
+* #### ISO 
+  - image of Linux OS (Ubuntu 20.04 LTS for x86_64 platform)
+* #### Hypervisor 
+  - (eg: Oracle VirtualBox or VMWare Workstation Player)
+  - A Hypervisor creates and runs virtual machines
+  - It allows running multiple operating systems while sharing hardware resources
+### Command Line Environments
+* Cloud - replit and cocalc
+* Phone - Termux by Fredrick Fornwall
+
 ### Terminal Emulators 
 * Terminal
 * Konsole
@@ -10,20 +30,43 @@
   - `~$` is the path
 ### Know your system
 * `uname -a` 
-  - prints the name, version and other details about the current machine and the operating system running on it
+  - prints the name, version and other details about the current machine and the operating system running on it.
 * `hostnamectl` 
   - prints system related information such as hostname, OS, Kernal, Architecture etc.
 * `msinfo32` 
   - Similar command for Windows.
-### Commands and Flags
+* `hostname`
+  - `-i` : local ip address
+  - `-I` : public ip address
+### Getting help for a command
+* `man`
+  - get help on any command in linux. eg : man ls
+  - man sections (1 to 9) eg : man 1 ls
+  - 1 - Executable programs or shell commands
+  - 2 - System calls provided by Kernel
+  - 3 - Library calls
+  - 4 - Special files usually found in /dev
+  - 5 - File formats and conversions
+  - 6 - Games
+  - 7 - Misc : macro packages and conventions
+  - 8 - System admin commands
+  - 9 - Kernel routines
+* `tldr`
+  - The tldr pages are a community effort to simplify the beloved man pages with practical examples.
+  - Need to install separately.
+    + `npm install -g tldr`
+  - `tldr ls` : Use cases of ls command
+### Basic Commands and Flags
 * `pwd` 
   - Present Working Directory 
-* `ls` 
-  `- a` : all . displays hidden files 
-  `- l` : use a long listing format
-  `- i` : print index number of each file (inode)
-  `- s` : shows blocks occupied by each file
-  `- 1` : each file name on a separate line
+* `ls`
+  - `-a` : all . displays hidden files 
+  - `-l` : use a long listing format
+  - `-i` : print index number of each file (inode)
+  - `-s` : shows blocks occupied by each file
+  - `-1` : each file name on a separate line
+  - `-h` : show numeric values in human readable format.
+  - all flags in `ls` command can be use in any combinations i.e. `ls -sh` or `ls -liah` etc. to get combined results of the flags.
   - output of `ls -l` : `drwxr-xr-x 5 ckg ckg 12288 Nov 25 10:00 Documents` (`d` is file type ; `rwxr-xr-x` owner,group,others permissions ; `5` no of hard links ; `ckg` is owner ; `ckg` is group ; last modified time stamp ; filename)
   - `ls F*` gives a list of all files starting with F
 * `rm` 
@@ -42,18 +85,6 @@
   - or ctrl+l
 * `exit` 
   - or ctrl+d
-* `man`
-  - get help on any command in linux. eg : man ls
-  - man sections (1 to 9) eg : man 1 ls
-  - 1 - Executable programs or shell commands
-  - 2 - System calls provided by Kernel
-  - 3 - Library calls
-  - 4 - Special files usually found in /dev
-  - 5 - File formats and conversions
-  - 6 - Games
-  - 7 - Misc : macro packages and conventions
-  - 8 - System admin commands
-  - 9 - Kernel routines
 * `cd`
   - change directory eg cd .. - goes to parent directory
   - `cd` without any arguments will take you to the home directory
@@ -145,17 +176,6 @@
 * If you want to access a file, all its parent direcories should have **x** permission. This works even without r and w permissions if you know the path.
 * r and w permissions along with x is required to ls a directory or touch a file into a directory
 * Removing a file works only if it has write permission
-  
-### Linux Virtual Machine 
-* #### ISO 
-  - image of Linux OS (Ubuntu 20.04 LTS for x86_64 platform)
-* #### Hypervisor 
-  - (eg: Oracle VirtualBox or VMWare Workstation Player)
-  - A Hypervisor creates and runs virtual machines
-  - It allows running multiple operating systems while sharing hardware resources
-### Command Line Environments
-* Cloud - replit and cocalc
-* Phone - Termux by Fredrick Fornwall
 
 ### File System of Linux OS
 * Filesystem Hirearchy Standard FHS 3.0 (June 03, 2015) (refspecs.linuxfoundation.org/fhs.shtml)
