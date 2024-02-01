@@ -38,6 +38,8 @@
 * `hostname`
   - `-i` : local ip address
   - `-I` : public ip address
+* `whoami`
+  - display currently logged username
 ### Getting help for a command
 * `man`
   - get help on any command in linux. eg : man ls
@@ -69,6 +71,10 @@
   - all flags in `ls` command can be use in any combinations i.e. `ls -sh` or `ls -liah` etc. to get combined results of the flags.
   - output of `ls -l` : `drwxr-xr-x 5 ckg ckg 12288 Nov 25 10:00 Documents` (`d` is file type ; `rwxr-xr-x` owner,group,others permissions ; `5` no of hard links ; `ckg` is owner ; `ckg` is group ; last modified time stamp ; filename)
   - `ls F*` gives a list of all files starting with F
+* `tree`
+  - show the content of the current directory as a tree
+  - `-a` : show all files or folders including hidden
+  - `-d` : list directories themselves, not their content
 * `rm` 
   - remove a file 
   - `rm -i` prompts before every removal (it can be set using `alias rm="rm -i"`)
@@ -120,14 +126,12 @@
   - `chmod g-w file.txt` (removes write permissions from the group)
   - `chmod o-x file.txt` (removes executable permission from others)
   - `chmod u-r file.txt` (removes read permission from owner)
-* `whoami`
-  - prints username
 * `less`
   - allows you to read a file page by page
 * `ln`
   - used to create a hard link or a symbolic link (symlink) to an existing file or directory
-  - `s` flag is used to create a soft link
-  - usage : `ln file1 file2` ; `ln -s file1 file2`
+  - `ln -s /path/to/file_or_directoy /path/to/symlink` : Create symbolic link
+  - `ln /path/to/file /path/to/hardlink` : Create hardlink. Although, Linux system themself can create hardlink, we can't create a hardlink for a directory.
 * `cat` 
   - stands for concatinate
   - allows you to view the contents of a single file or multiple files (gets concatinated)
