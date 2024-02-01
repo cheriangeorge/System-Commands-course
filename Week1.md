@@ -8,10 +8,14 @@
 ### Command Prompt
 * `username@hostname:~$ `
   - `~$` is the path
-### Commands and Flags
-* `uname` 
+### Know your system
+* `uname -a` 
   - prints the name, version and other details about the current machine and the operating system running on it
-  - the -a displays hidden files that have a dot in front of them 
+* `hostnamectl` 
+  - prints system related information such as hostname, OS, Kernal, Architecture etc.
+* `msinfo32` 
+  - Similar command for Windows.
+### Commands and Flags
 * `pwd` 
   - Present Working Directory 
 * `ls` 
