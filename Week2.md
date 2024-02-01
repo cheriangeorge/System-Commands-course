@@ -1,42 +1,40 @@
 ## Week 2 Notes
 
-* Multiple uses of / is as good as one
-  - ie : `cd usr//////bin` will take you to `usr/bin`
-* The root folder / is its own parent
-  - ie : if you do `cd ..` within the root directory you stay in the same directory.
-* Options / Flags can be written in multiple combinations
-  - `ls -l level1 -di`
-  - `ls -d level1 -il`
-  - `ls level1 -ldi`
-  - `ls -ldi level1`
- * long formats for options are also available
-  - `ls -a` is equivalent to `ls --all`
+* `command -<option> <argument:optional>`
+  - command: `ls`, `cd`, `less`, `which`, `whatis` etc.
+  - options: `-l`, `-h`, `-k`  etc.
+  - argument: <filename>, <directory>, <parameters> etc.
 
-
-### Commands
-* `ls`
-  - R flag lists all subdirectories recursively 
-  - Passing directory name to ls shows what is within that directory. ie : ls -l level1 
-  - d flag displays details of a folder without traversing inside it. it : ls -ld level1 
-  - 
-* `ll`
-  - a shortcut for the ls -la command
-* `which`
-  - which *command* will show the location of the command
-  - `which less` will show usr/bin/less
-* `whatis`
-  - gives a brief description of the command
-* `alias` 
+### Knowing more commands
+* `help`
+  - Display information about Bash buildin commands.
+* `type` <command>` : Display the type of command the shell will execute.
+* `which <command>` : Locate a program in the user's path.
+* `whatis <command>` : Display one-line description from manuall page.
+* `tldr <command>` : Display simple hellp pages with use cases.
+* `man <command>` : Format and display manual pages
+  - `-k` : Search the short descriptions and manual page names for the provided keyword i.e. `man -k <command>`. Similar to `apropos <command>`.
+* `apropos <command>`
+  - Search the manual pages for names and descriptions.
+  - exact result as `man -k <command>`
+  - Use to discover new commands
+  - Used to discover new commands
+  - If you type `ls -l /usr/bin/apropos` you see that it is a symbolic link to whatis, but the outputs are different : Why?
+  - Reason : In Linux every executable will know in what name it has been invoked - can have different behaviour depending on the name that invoked it.
+* `info`
+  - Read documentation stored in the info format
+  - `info` : Start reading top-level directory.
+  - `info <menu item>` : Start reading at given item node from top-level directory.
+  - `info <first menu> <second menu>` : Start reading at second menu item within first menu item manual.
+  - Can go back using *<* or 'shift'+','
+* `alias`
   - give a nickname to a frequently used command
-  - usage : `alias ll='ls -l'`
-  - Just typing alias will show a list of aliases
-  - `alias date='date -R'`
-  - If the command is executed by typing the whole path eg : `/usr/bin/date` the alias is not invoked. (`cd /usr/bin` and `./date`)
-  - An alias can be escaped by prefixing a \ ie: `\date`
-* `unalias` 
-  - used to remove an alias
-* `rmdir`
-  - removes an empty directory
+  - usage : `alias <nick name>="<command with arguments>"` i.e. `alias ll="ls -la"` or `alias date="date -R"`.
+  - `alias` : show a list of current aliases.
+  - `/<alias name>` : If you have a command and the alias with same name you can skip alias and use original command. For example there is an alias `ls="ls --color=auto"` exists. But If you want to use original `ls` command, you can type `/ls`.
+* `unalias <alias name>` : Remove an alias
+
+### Useful Commands
 * `ps`
   - displays current processes
   - `ps --forest` - which process has launched which child process.
@@ -46,6 +44,13 @@
   - PID 1 is `/sbin/init`
 * `bc` - bench calculator 
   - exit using `Ctrl`+`D`
+
+### Deleting something
+* `rmdir <dir_name>` : removes an empty directory
+* `rm -r <dir_name>` : remove a non-empty directory. (Recursive).
+* `rm -r -i <dir_name>` : remove recursively and take confirmation on each file. (Interactive)
+* `rm <file_name>` : remove given file.
+* `rm *` : remove all files from the current folder.
 
 ### Commands to know contents of a text file
 
@@ -69,27 +74,9 @@
   - similar to less. Allows page by page viewing
   - ls -l /usr/bin/more shows that the command takes 43KB
 
-### Knowing more commands
-* `man`
-* `which`
-* `apropos`
-  - For a keyword it shows you all the commands which have that keyword in the description
-  - Used to discover new commands
-  - If you type `ls -l /usr/bin/apropos` you see that it is a symbolic link to whatis, but the outputs are different : Why?
-  - Reason : In Linux every executable will know in what name it has been invoked - can have different behaviour depending on the name that invoked it.
-  - It also has the same output as `man -k` : Searching for a keyword
-* `info`
-  - Allows browsing through commands using the cursor 
-  - Can go back using *<* or 'shift'+','
-* `whatis`
-* `help`
-  - displays keywords reserved for the shell being run
-* `type`
-  - displays what type of command it is 
-  - type type shows that it is a 'shell built in' being offered from the shell and not the os
-  - type ls shows that it is aliased with some option. which ls shows that it is coming from os because there is an executable available.
  ### Multiple Arguments
  * ##### Recap : Arguments and Options
+  - 
   - Options are enhanced features of the command
   - Arguments are specific names of files or directories 
  * Second arrument behaviour and interpratation of last argument should be seen in the man pages
