@@ -40,6 +40,9 @@
   - `-I` : public ip address
 * `whoami`
   - display currently logged username
+* `lsb_release -a`
+  - display distribution-specific information
+  - Distribution ID, Fullname, Release Version, Codename etc.
 ### Getting help for a command
 * `man`
   - get help on any command in linux. eg : man ls
