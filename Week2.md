@@ -74,9 +74,8 @@
   - similar to less. Allows page by page viewing
   - ls -l /usr/bin/more shows that the command takes 43KB
 
- ### Multiple Arguments
- * ##### Recap : Arguments and Options
-  - 
+### Multiple Arguments
+##### Recap : Arguments and Options
   - Options are enhanced features of the command
   - Arguments are specific names of files or directories 
  * Second arrument behaviour and interpratation of last argument should be seen in the man pages
