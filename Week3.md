@@ -144,11 +144,11 @@
     - Display 4 characters of the string value of the variable `myvar` after skipping first 5 characters.
   - if the slice length is larget than the length of the string then only what is available in the string will be displayed.
   - the offset can also be negative. However you need to provide a *space* after the *:* to avoid confusion with the earlier usage of the `:-` symbol. The offset would come from the right hand side of the string.
-* Remove matching pattern
+* Remove matching pattern from Beginning
   - `echo ${myvar#pattern}` - matches once
   - `echo ${myvar##pattern}` - matches maximum possible
   - Whatever is matching the pattern will be removed and the rest of it will be displayed on the screen.
-* Keep matching pattern
+* Remove matching pattern from End
   - `echo ${myvar%pattern}` - matches once
   - `echo ${myvar%%pattern}` - matches maximum possible
 * Replace matching pattern
